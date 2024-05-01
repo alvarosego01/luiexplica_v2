@@ -1,0 +1,6 @@
+/composer.lock
+/vendor/
+/wordpress/
+/node_modules/
+
+pruebas.*
