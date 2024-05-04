@@ -10,7 +10,7 @@ class TestTimberStarterTheme extends BaseTestCase {
 
 		require dirname( __DIR__ ) . '/functions.php';
 
-		Timber::$dirname = array_merge( (array) Timber::$dirname, [ '../views' ] );
+		Timber::$dirname = array_merge( (array) Timber::$dirname, [ '../src/views' ] );
 		Timber::$dirname = array_unique( Timber::$dirname );
 
 		// WorDBless includes wp-settings.php
