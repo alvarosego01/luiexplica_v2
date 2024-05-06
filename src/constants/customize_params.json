@@ -1,0 +1,23 @@
+
+[
+    {
+        "title": "Configuraciones globales",
+        "id": "section_configurations",
+        "priority": 30,
+        "controls": [
+            {
+                "id": "header_logo",
+                "label": "Logo Header",
+                "type": "image",
+                "default": ""
+            },
+            {
+                "id": "footer_logo",
+                "label": "Logo Footer",
+                "type": "image",
+                "default": ""
+            }
+        ]
+    }
+
+]

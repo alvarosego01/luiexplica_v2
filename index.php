@@ -19,13 +19,8 @@ $context['foo']   = 'bar';
 
 $templates        = array( 'index.twig' );
 
-echo 'es index';
-
-echo 'is_front_page: ' . is_front_page();
-echo 'is_home: ' . is_home();
-
 if ( is_home() ) {
-    echo 'es home';
+
 	array_unshift( $templates, 'front-page.twig', 'home.twig' );
 }
 Timber::render( $templates, $context );

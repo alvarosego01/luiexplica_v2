@@ -3,7 +3,6 @@
 @tailwind utilities;
  */
 
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=fallback');
 
 @import 'tailwindcss/base';
@@ -27,4 +26,9 @@
 /* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
 [x-cloak=""] {
     display: none;
+}
+
+.btn img.emoji {
+    position: relative;
+    left: 5px;
 }

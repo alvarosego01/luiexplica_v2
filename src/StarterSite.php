@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Classes\BlocksMain;
+use App\Classes\CustomizeControls;
 use App\Classes\generalFunctions;
 use Timber\Site;
 use Timber\Timber;
@@ -12,6 +15,8 @@ class StarterSite extends Site
 
     public function __construct()
     {
+
+
         add_action('after_setup_theme', array($this, 'theme_supports'));
         add_action('init', array($this, 'register_post_types'));
         add_action('init', array($this, 'register_taxonomies'));
@@ -20,22 +25,24 @@ class StarterSite extends Site
         add_filter('timber/twig', array($this, 'add_to_twig'));
         add_filter('timber/twig/environment/options', [$this, 'update_twig_environment_options']);
 
+        // Blocks gutenberg register
+        $blocks = new BlocksMain();
+        // Custom configs register
+        $customize = new CustomizeControls();
+
+
         $this->register_scripts_styles();
 
         parent::__construct();
+
     }
 
     public function register_scripts_styles()
     {
 
-        /*
-       wp_enqueue_style('blog.css', get_stylesheet_directory_uri() . '/dist/styles/pages/blog.css', false, rand(111, 9999), 'all');
-        wp_enqueue_script('blog.js', get_stylesheet_directory_uri() . '/dist/scripts/pages/blog.js', ['jquery'], rand(111, 9999), 'all');
-         */
-
         add_action('wp_enqueue_scripts', function () {
 
-             wp_enqueue_style('wp-block-library');
+            wp_enqueue_style('wp-block-library');
 
             wp_enqueue_style('aos_css', get_stylesheet_directory_uri() . '/resources/css/vendors/aos.css', false, rand(111, 9999), 'all');
 
@@ -50,6 +57,15 @@ class StarterSite extends Site
             wp_enqueue_script('mainjs', get_stylesheet_directory_uri() . '/assets/js/main.js', ['jquery'], rand(111, 9999), 'all');
 
         });
+
+         add_action('after_setup_theme', function () {
+
+            add_theme_support('editor-styles');
+
+            add_editor_style( get_stylesheet_directory_uri() . '/assets/css/tailwind.css' );
+
+         });
+
 
     }
 
@@ -74,17 +90,19 @@ class StarterSite extends Site
      */
     public function add_to_context($context)
     {
-        $context['foo']   = 'bar';
-        $context['stuff'] = 'I am a value set in your functions.php file';
-        $context['notes'] = 'These values are available everytime you call Timber::context();';
         $context['menu']  = Timber::get_menu();
         $context['site']  = $this;
 
         $context['project_root'] = THEME_ROOT_PATH;
+        $context['home_url'] = home_url();
         $context['server_name'] = (new generalFunctions())->get_TypeUrl();
+
+        $context['customize'] = (new CustomizeControls())->load_customizer_settings();
 
         return $context;
     }
+
+
 
     public function theme_supports()
     {
@@ -184,6 +202,5 @@ class StarterSite extends Site
         // $options['autoescape'] = true;
 
         return $options;
-
     }
 }

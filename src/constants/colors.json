@@ -1,0 +1,31 @@
+[
+    {
+        "name": "generalBlack",
+        "color": "#242424"
+    },
+    {
+        "name": "primaryPink",
+        "color": "#FF419B"
+    },
+    {
+        "name": "generalWhite",
+        "color": "#F0F8FF"
+    },
+    {
+        "name": "complementBlue",
+        "color": "#5BE7FF"
+    },
+    {
+        "name": "primaryBlue",
+        "color": "#0085F4"
+    },
+    {
+        "name": "secondaryBlue",
+        "color": "#00378E"
+    },
+    {
+        "name": "thirdBlue",
+        "color": "#003366"
+    }
+
+]
