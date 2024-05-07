@@ -5,21 +5,16 @@
         "description": "Header t1 block",
         "category": "Lui_explica",
         "icon": "admin-comments",
+        "folder": "headers",
         "keywords": "header, t1, title",
         "fields": [
-            {
-                "key": "header_t1_title",
-                "label": "Title",
-                "type": "wysiwyg",
-                "default": "lorem ipsum dolor sit amet"
-            },
             {
                 "key": "header_t1_background_color",
                 "label": "Background color",
                 "type": "select_color",
                 "default": "slate-900"
             },
-             {
+            {
                 "key": "header_t1_background_type",
                 "label": "Background type",
                 "type": "select",
@@ -34,6 +29,12 @@
                     }
                 ],
                 "default": "inclined"
+            },
+            {
+                "key": "header_t1_title",
+                "label": "Title",
+                "type": "wysiwyg",
+                "default": "lorem ipsum dolor sit amet"
             },
             {
                 "key": "header_t1_subtitle",
@@ -174,5 +175,187 @@
                 }
             }
         ]
+    },
+    {
+        "name": "block-cta-texts-btn-t1",
+        "title": "CTA Texts and Buttons t1",
+        "description": "CTA Texts and Buttons t1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "ctas",
+        "keywords": "cta, texts, buttons, t1",
+        "fields": [
+            {
+                "key": "cta_t1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-100"
+            },
+            {
+                "key": "cta_t1_background_type",
+                "label": "Background type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Inclined",
+                        "value": "inclined"
+                    },
+                    {
+                        "label": "Flat",
+                        "value": "flat"
+                    }
+                ],
+                "default": "flat"
+            },
+            {
+                "key": "cta_t1_title",
+                "label": "Title",
+                "type": "wysiwyg",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "cta_t1_subtitle",
+                "label": "Subtitle",
+                "type": "wysiwyg",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "cta_t1_enable_buttons",
+                "label": "Enable buttons",
+                "type": "true_false",
+                "default": 1
+            },
+            {
+                "key": "cta_button_1_label",
+                "label": "Button 1 text",
+                "type": "text",
+                "default": "Button",
+                "condition": {
+                    "key": "cta_t1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_1_url",
+                "label": "Button 1 URL",
+                "type": "url",
+                "default": "#",
+                "condition": {
+                    "key": "cta_t1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_1_color",
+                "label": "Button 1 Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "primary",
+                "condition": {
+                    "key": "cta_t1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_2_label",
+                "label": "Button 2 text",
+                "type": "text",
+                "default": "Button",
+                "condition": {
+                    "key": "cta_t1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_2_url",
+                "label": "Button 2 URL",
+                "type": "url",
+                "default": "#",
+                "condition": {
+                    "key": "cta_t1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_2_color",
+                "label": "Button 2 Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "secondary",
+                "condition": {
+                    "key": "cta_t1_enable_buttons",
+                    "value": 1
+                }
+            }
+        ]
+    },
+    {
+        "name": "block-content-features-t1",
+        "title": "Content Features t1",
+        "description": "Content Features t1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, features, t1",
+        "fields": [
+            {
+                "key": "content_features_t1_title",
+                "label": "Title",
+                "type": "wysiwyg",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "content_features_t1_features",
+                "label": "Features",
+                "type": "flexible_content",
+                "layouts": [
+                    {
+                        "key": "feature_layout",
+                        "label": "Feature",
+                        "sub_fields": [
+                            {
+                                "key": "feature_icon",
+                                "label": "Icon",
+                                "type": "image",
+                                "default": "admin-comments"
+                            },
+                            {
+                                "key": "feature_title",
+                                "label": "Title",
+                                "type": "wysiwyg",
+                                "default": "Feature"
+                            },
+                            {
+                                "key": "feature_description",
+                                "label": "Description",
+                                "type": "wysiwyg",
+                                "default": "lorem ipsum dolor sit amet"
+                            }
+                        ]
+                    }
+                ],
+                "button_label": "Add feature"
+            }
+        ]
     }
 ]
+
+

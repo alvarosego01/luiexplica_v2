@@ -100,6 +100,22 @@ class CustomizeControls
                     )));
                     break;
 
+                case 'string':
+                    $wp_customize->add_setting($id, [
+                        'default' => $default,
+                        'transport' => 'refresh', // o 'postMessage' si estás implementando cambios en vivo con JS
+                    ]);
+
+                    $wp_customize->add_control($id, [
+                        'label'    => __($label, THEME_NAME),
+                        'section'  => $section,
+                        'settings' => $id,
+                        'type'     => 'text'
+                    ]);
+
+
+                    break;
+
                 default:
                     // Agrega aquí más tipos según sea necesario
                     break;

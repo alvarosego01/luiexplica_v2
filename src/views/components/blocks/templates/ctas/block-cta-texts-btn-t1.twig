@@ -1,0 +1,81 @@
+<!-- Cta -->
+
+{#
+    cta_t1_background_color
+    cta_t1_background_type
+    cta_t1_title
+    cta_t1_subtitle
+    cta_t1_enable_buttons
+    cta_button_1_label
+    cta_button_1_url
+    cta_button_1_color
+    cta_button_2_label
+    cta_button_2_url
+    cta_button_2_color
+
+ #}
+
+
+{% set cta_t1_background_color = fields.cta_t1_background_color %}
+{% set cta_t1_background_type = fields.cta_t1_background_type %}
+{% set cta_t1_title = fields.cta_t1_title %}
+{% set cta_t1_subtitle = fields.cta_t1_subtitle %}
+{% set cta_t1_enable_buttons = fields.cta_t1_enable_buttons %}
+{% set cta_button_1_label = fields.cta_button_1_label %}
+{% set cta_button_1_url = fields.cta_button_1_url %}
+{% set cta_button_1_color = fields.cta_button_1_color %}
+{% set cta_button_2_label = fields.cta_button_2_label %}
+{% set cta_button_2_url = fields.cta_button_2_url %}
+{% set cta_button_2_color = fields.cta_button_2_color %}
+
+
+<section class="{{ 'bg-' ~ cta_t1_background_color }}
+     {% if cta_t1_background_type == 'inclined' %}
+            [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
+        {% endif %}
+">
+    <div class="relative max-w-6xl px-4 mx-auto sm:px-6">
+        <div class="py-12 md:py-20">
+            <div class="relative max-w-3xl mx-auto text-center">
+
+                <div class="relative space-y-5">
+                    {% if cta_t1_title != '' %}
+                    <h2 class="leading-normal  h2 text-slate-800">
+                        {{ cta_t1_title }}
+                    </h2>
+                    {% endif %}
+                    {% if cta_t1_subtitle != '' %}
+                    <p class="text-xl leading-normal text-slate-500">
+                        {{ cta_t1_subtitle }}
+                    </p>
+                    {% endif %}
+                    {% if cta_t1_enable_buttons == 1 %}
+                     <div
+                        class="justify-center max-w-xs mx-auto space-y-4 sm:max-w-none sm:flex sm:space-y-0 sm:space-x-4">
+                         {% if cta_button_1_label != '' %}
+                        <div>
+                            {% include "components/common/Button.twig" with {
+                                'text': cta_button_1_label,
+                                'type': cta_button_1_color,
+                                'path': cta_button_1_url
+                                }
+                            %}
+                        </div>
+                        {% endif %}
+                        {% if cta_button_2_label != '' %}
+                        <div>
+                           {% include "components/common/Button.twig" with {
+                                'text': cta_button_2_label,
+                                'type': cta_button_2_color,
+                                'path': cta_button_2_url
+                                }
+                            %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

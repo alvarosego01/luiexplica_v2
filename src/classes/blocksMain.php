@@ -7,9 +7,6 @@ class BlocksMain
     public function __construct()
     {
         add_action('init', [$this, 'register_acf_blocks']);
-
-        (new ACF_declarations())->register_custom_blocks();
-
     }
 
     public function blocks_categories()
@@ -19,10 +16,11 @@ class BlocksMain
     public function render_callback($block)
     {
         $slug = str_replace('acf/', '', $block['name']);
-
-        if (file_exists(get_theme_file_path("/src/views/components/blocks/controllers/{$slug}.php"))) {
+        $folder = $block['folder'];
+        // print_r($block);
+        if (file_exists(get_theme_file_path("/src/views/components/blocks/controllers/{$folder}/{$slug}.php"))) {
             $context = ['slug' => $slug];
-            include(get_theme_file_path("/src/views/components/blocks/controllers/{$slug}.php"));
+            include(get_theme_file_path("/src/views/components/blocks/controllers/{$folder}/{$slug}.php"));
         }
     }
 
@@ -41,10 +39,11 @@ class BlocksMain
                             'name'              => $block['name'],
                             'title'             => __($block['title']),
                             'description'       => __($block['description']),
-                            'render_callback'   => [$this, 'render_callback'],
                             'category'          => $block['category'],
                             'icon'              => $block['icon'],
                             'keywords'          => $block['keywords'],
+                            'folder'          => $block['folder'],
+                            'render_callback'   => [$this, 'render_callback'],
                         ));
 
                     }

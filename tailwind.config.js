@@ -32,6 +32,7 @@ module.exports = {
                 nunito: ['Nunito']
             },
             fontSize: {
+                x: ['0.50rem', { lineHeight: '1.5' }],
                 xs: ['0.75rem', { lineHeight: '1.5' }],
                 sm: ['0.875rem', { lineHeight: '1.5715' }],
                 base: ['1rem', { lineHeight: '1.5', letterSpacing: '-0.01em' }],
@@ -201,6 +202,13 @@ module.exports = {
                 widest: '0.4em',
             },
         },
+        variants: {
+    extend: {
+      backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+      textColor: ['responsive', 'hover', 'focus', 'active'],
+      borderColor: ['responsive', 'hover', 'focus', 'active'],
+    },
+  },
     },
     plugins: [
         // eslint-disable-next-line global-require

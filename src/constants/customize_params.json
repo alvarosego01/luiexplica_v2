@@ -16,6 +16,12 @@
                 "label": "Logo Footer",
                 "type": "image",
                 "default": ""
+            },
+            {
+                "id": "copyrights",
+                "label": "Copy Rights",
+                "type": "string",
+                "default": "© 2020 All Rights Reserved."
             }
         ]
     }

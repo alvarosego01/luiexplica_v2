@@ -12,6 +12,8 @@ if (!defined('THEME_NAME')) {
     define('THEME_NAME', 'lui_explica');
 }
 
+
+
 // Load Composer dependencies.
 require_once THEME_ROOT_PATH . '/vendor/autoload.php';
 require_once THEME_ROOT_PATH . '/src/classes/index.php';
