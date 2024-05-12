@@ -1,0 +1,143 @@
+
+
+{% set pricing_1_background_color = fields.pricing_1_background_color %}
+{% set pricing_1_background_type = fields.pricing_1_background_type %}
+{% set pricing_1_title = fields.pricing_1_title %}
+{% set pricing_1_enable_selector = fields.pricing_1_enable_selector %}
+{% set pricing_1_left_selector = fields.pricing_1_left_selector %}
+{% set pricing_1_right_selector = fields.pricing_1_right_selector %}
+{% set pricing_1_price_cards = fields.pricing_1_price_cards %}
+
+
+
+<section
+	class="relative">
+
+	<div class="absolute inset-0 pointer-events-none bg-{{ pricing_1_background_color }} -z-10 h-1/3 lg:h-2/3
+
+        {% if pricing_1_background_type == 'inclined' %}
+            [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
+        {% endif %}
+    " aria-hidden="true"></div>
+
+	<div class="relative max-w-6xl px-4 mx-auto sm:px-6">
+		<div
+			class="py-12 md:py-20">
+
+            {% if pricing_1_title != '' %}
+			<div data-aos="fade-up" class="max-w-3xl pb-12 mx-auto text-center">
+				<h2 class="h2 text-slate-100">
+                    {{ pricing_1_title }}
+                </h2>
+			</div>
+            {% endif %}
+
+			<div
+				x-data="{ active: true }">
+
+                {% if pricing_1_enable_selector == 1 %}
+				<div data-aos="fade-up" class="flex items-center justify-center mb-16 space-x-4 sm:space-x-7">
+					<div class="text-lg trans font-medium text-right min-w-[8rem]"
+                      :class="active ? 'text-gray-500' : 'text-gray-200'"
+                    >
+                    {{ pricing_1_left_selector }}
+                    </div>
+					<div class="form-switch shrink-0">
+						<input type="checkbox" id="toggle" class="sr-only" x-model="active"/>
+						<label class="bg-slate-700" for="toggle">
+							<span class="border-8 bg-slate-300 border-slate-500" aria-hidden="true"></span>
+							<span class="sr-only">Modo de pago</span>
+						</label>
+					</div>
+					<div class="trans text-lg font-medium min-w-[8rem]
+                    "
+                    :class="active ? 'text-emerald-500' : 'text-gray-500'"
+                    >
+                    {{ pricing_1_right_selector }}
+					</div>
+				</div>
+                {% endif %}
+
+
+                {% if pricing_1_price_cards|length > 0 %}
+
+				<div
+					class="grid items-center max-w-sm gap-8 pt-4 mx-auto lg:grid-cols-12 lg:gap-6 lg:max-w-none">
+
+                      {% for item in pricing_1_price_cards %}
+                          {% set index = index + 1 %}
+
+                            {% set pricing_1_card_title = item.pricing_1_card_title %}
+                            {% set pricing_1_price_left = item.pricing_1_price_left %}
+                            {% set pricing_1_price_right = item.pricing_1_price_right %}
+                            {% set pricing_1_card_subtitle = item.pricing_1_card_subtitle %}
+                            {% set pricing_1_card_description = item.pricing_1_card_description %}
+                            {% set pricing_1_card_button_label = item.pricing_1_card_button_label %}
+                            {% set pricing_1_card_button_url = item.pricing_1_card_button_url %}
+                            {% set pricing_1_card_button_color = item.pricing_1_card_button_color %}
+                            {% set pricing_1_card_tag = item.pricing_1_card_tag %}
+
+                            {# {% if pricing_1_price_cards|length == 2 %}
+                                {% if index == 1 %}
+                                    <div class="hidden lg:block"></div>
+                                {% endif %}
+                            {% endif %} #}
+
+
+					<div class="relative flex flex-col  h-full col-span-4 px-6 py-5 bg-white shadow-lg
+                    {% if pricing_1_price_cards|length == 2 and index == 1 %}
+                        lg:col-start-3
+                    {% endif %}
+                    {% if pricing_1_price_cards|length == 1 and index == 1 %}
+                        lg:col-start-5
+                    {% endif %}
+
+                    " data-aos="fade-up"  data-aos-delay={{ index * 100 }}>
+
+                        {% if pricing_1_card_tag != '' %}
+                        <div class="absolute top-0 right-0 mr-6 -mt-4">
+							<div class="inline-flex px-3 py-1 text-sm font-semibold rounded-full text-emerald-700 bg-emerald-200">
+                                {{ pricing_1_card_tag }}
+                            </div>
+						</div>
+                        {% endif %}
+
+						<div class="pb-4 mb-4 border-b border-slate-200">
+							<div class="mb-3 text-lg font-semibold text-slate-800">
+                                {{ pricing_1_card_title }}
+                            </div>
+							<div class="inline-flex items-baseline mb-3">
+								<span class="font-medium h3 text-slate-500">$</span>
+								<span x-text="active ? {{ pricing_1_price_right }} : {{ pricing_1_price_left }}" class="leading-7 h2 text-slate-800"></span>
+								<span class="font-medium text-slate-400">/USD</span>
+							</div>
+							<div class="text-slate-500">
+                                {{ pricing_1_card_subtitle }}
+                            </div>
+						</div>
+						<div class="mb-3 font-medium">
+                       y     {{ pricing_1_card_description }}
+                        </div>
+
+						<div class="p-3 rounded bg-slate-50">
+                            {% include "components/common/Button.twig" with {
+                                'text': pricing_1_card_button_label,
+                                'path': pricing_1_card_button_url,
+                                'type': pricing_1_card_button_color,
+                                 'class': '!w-full'
+                                }
+                            %}
+						</div>
+					</div>
+                          {% endfor %}
+
+
+				</div>
+
+                {% endif %}
+
+			</div>
+
+		</div>
+	</div>
+</section>

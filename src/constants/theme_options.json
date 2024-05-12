@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Global Settings",
+        "icon": "dashicons-clipboard",
+        "page": "theme-settings",
+        "fields": [
+              {
+                "key": "global_header_logo",
+                "label": "Logo Header",
+                "type": "image",
+                "default": ""
+            },
+            {
+                "key": "global_footer_logo",
+                "label": "Logo Footer",
+                "type": "image",
+                "default": ""
+            },
+            {
+                "key": "global_copyrights",
+                "label": "Copy Rights",
+                "type": "text",
+                "default": "© 2020 All Rights Reserved."
+            }
+        ]
+    },
+    {
+        "name": "Trustpilot Settings",
+        "parent": "theme-settings",
+        "page": "trustpilot-settings",
+        "fields": [
+              {
+                "key": "trustpilot_image",
+                "label": "Trustpilot Image",
+                "type": "image",
+                "default": ""
+            },
+            {
+                "key": "trustpilot_link",
+                "label": "Trustpilot Link",
+                "type": "url",
+                "default": "https://www.trustpilot.com/"
+            }
+        ]
+    }
+
+]

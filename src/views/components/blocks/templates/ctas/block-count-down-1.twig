@@ -1,0 +1,152 @@
+
+
+{% set count_down_1_background_color = fields.count_down_1_background_color %}
+{% set count_down_1_background_type = fields.count_down_1_background_type %}
+{% set count_down_1_title = fields.count_down_1_title %}
+{% set count_down_1_date = fields.count_down_1_date %}
+
+
+{% set count_down_1_enable_button = fields.count_down_1_enable_button %}
+{% set count_down_1_button_label = fields.count_down_1_button_label %}
+{% set count_down_1_button_url = fields.count_down_1_button_url %}
+{% set count_down_1_button_color = fields.count_down_1_button_color %}
+
+
+<section class="relative">
+
+	{% set bg = (count_down_1_background_color != '')? count_down_1_background_color : 'slate-900' %}
+
+	<div class="absolute inset-0 bg-{{ bg }}
+				                 pointer-events-none -z-10
+				                      {% if count_down_1_background_type == 'inclined' %}
+				                      [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]  h-52 md:h-72 md:mb-s_75
+				                    {% endif %}
+				                    " aria-hidden="true"></div>
+
+
+
+        <div class="py-12 md:py-20">
+
+			{% if count_down_1_title != '' %}
+				<div data-aos="fade-up" class="max-w-3xl pb-12 mx-auto text-center md:pb-15">
+					<h2 class="h2 text-slate-100">
+						{{ count_down_1_title }}
+					</h2>
+				</div>
+			{% endif %}
+
+			<div class="relative flex flex-col counter">
+
+				<div id="{{ block_id }}" class="block mx-auto">
+					<div class="countdown">
+						<ul class="flex flex-row items-center justify-center space-x-10">
+							<li
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                             class="flex flex-col items-center justify-center p-5 text-base font-bold rounded shadow-lg min-w-s_100 bg-generalWhite">
+								<span class="text-4xl font-extrabold text-primaryBlue days"></span>
+								Días
+							</li>
+							<li
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                             class="flex flex-col items-center justify-center p-5 text-base font-bold rounded shadow-lg min-w-s_100 bg-generalWhite">
+								<span class="text-4xl font-extrabold text-primaryBlue hours"></span>
+								Horas
+							</li>
+							<li
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                             class="flex flex-col items-center justify-center p-5 text-base font-bold rounded shadow-lg min-w-s_100 bg-generalWhite">
+								<span class="text-4xl font-extrabold text-primaryBlue minutes"></span>
+								Minutos
+							</li>
+							<li
+                            data-aos="fade-up"
+                            data-aos-delay="400"
+                             class="flex flex-col items-center justify-center p-5 text-base font-bold rounded shadow-lg min-w-s_100 bg-generalWhite">
+								<span class="text-4xl font-extrabold text-primaryBlue seconds"></span>
+								Segundos
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+                {% if count_down_1_enable_button == 1 %}
+                <div class="flex items-center justify-center w-full mt-7">
+                            {% include "components/common/Button.twig" with {
+                                'text': count_down_1_button_label,
+                                'path': count_down_1_button_url,
+                                'type': count_down_1_button_color
+                                }
+                            %}
+                </div>
+                {% endif %}
+
+			</div>
+
+
+
+	</div>
+
+
+</section>
+
+
+{% if count_down_1_date != '' %}
+
+
+	<script>
+
+		function startCountdown(fechaString) {
+const second = 1000,
+minute = second * 60,
+hour = minute * 60,
+day = hour * 24;
+
+let partes = fechaString.split(' ')[0].split('-');
+let dayMonth = `${
+partes[1]
+}/${
+partes[2]
+}/`;
+let year = partes[0];
+
+let today = new Date(),
+dd = String(today.getDate()).padStart(2, "0"),
+mm = String(today.getMonth() + 1).padStart(2, "0"),
+yyyy = today.getFullYear(),
+nextYear = yyyy + 1;
+
+let birthday = dayMonth + year;
+
+today = mm + "/" + dd + "/" + yyyy;
+if (today > birthday) {
+birthday = dayMonth + nextYear;
+}
+
+const parent = document.getElementById("{{ block_id }}");
+
+const countDown = new Date(birthday).getTime(),
+x = setInterval(function () {
+const now = new Date().getTime(),
+distance = countDown - now;
+
+parent.querySelector(".days").innerText = Math.floor(distance / (day)),
+parent.querySelector(".hours").innerText = Math.floor((distance % (day)) / (hour)),
+parent.querySelector(".minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+parent.querySelector(".seconds").innerText = Math.floor((distance % (minute)) / second);
+
+if (distance < 0) { // parent.querySelector(".headline").innerText = "It's my birthday!";
+parent.querySelector(".countdown").style.display = "none";
+parent.querySelector(".content").style.display = "block";
+clearInterval(x);
+}
+}, 0)
+}
+
+// Ejemplo de uso
+startCountdown('{{ count_down_1_date }}');
+	</script>
+{% endif %}

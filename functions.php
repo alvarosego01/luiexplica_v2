@@ -13,7 +13,6 @@ if (!defined('THEME_NAME')) {
 }
 
 
-
 // Load Composer dependencies.
 require_once THEME_ROOT_PATH . '/vendor/autoload.php';
 require_once THEME_ROOT_PATH . '/src/classes/index.php';
@@ -23,7 +22,5 @@ Timber\Timber::init();
 
 // Sets the directories (inside your theme) to find .twig files.
 Timber::$dirname = [ 'templates', 'src/views' ];
-
-
 
 new StarterSite();

@@ -2,6 +2,7 @@
 
 use App\Classes\ACF_declarations;
 use App\Classes\BlocksMain;
+use App\Classes\CarbonFields;
 use App\Classes\CustomizeControls;
 use App\Classes\generalFunctions;
 use App\Classes\Menus_Handler;
@@ -30,20 +31,22 @@ class StarterSite extends Site
         // Blocks gutenberg register
         $blocks = new BlocksMain();
         // Custom configs register
-        $customize = new CustomizeControls();
+        // $customize = new CustomizeControls();
 
-        $this->register_acf_fields();
+        $this->register_meta_fields();
 
         $this->register_scripts_styles();
 
         parent::__construct();
     }
 
-    public function register_acf_fields()
+    public function register_meta_fields()
     {
-        (new ACF_declarations())->set_properties_nav_menu();
-        (new ACF_declarations())->register_custom_blocks();
+        // (new ACF_declarations())->set_properties_nav_menu();
+        // (new ACF_declarations())->register_custom_blocks();
+        (new CarbonFields())->__init();
     }
+
 
     public function register_scripts_styles()
     {
@@ -51,6 +54,10 @@ class StarterSite extends Site
         add_action('wp_enqueue_scripts', function () {
 
             wp_enqueue_style('wp-block-library');
+
+            wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
+
+            wp_enqueue_style('box-icons', 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
 
             wp_enqueue_style('aos_css', get_stylesheet_directory_uri() . '/resources/css/vendors/aos.css', false, rand(111, 9999), 'all');
 
@@ -71,8 +78,6 @@ class StarterSite extends Site
 
             add_editor_style(get_stylesheet_directory_uri() . '/assets/css/tailwind.css');
         });
-
-
     }
 
     /**
@@ -102,19 +107,42 @@ class StarterSite extends Site
         $context['project_root'] = THEME_ROOT_PATH;
         $context['home_url'] = home_url();
         $context['server_name'] = (new generalFunctions())->get_TypeUrl();
-        $context['customize'] = (new CustomizeControls())->load_customizer_settings();
+        $context['server_uri'] = get_stylesheet_directory_uri();
+
+        $context['theme_settings'] = (new CarbonFields())->load_theme_settings('theme-settings');
 
         // Get menu
         $context['header_menu_primary'] = (new Menus_Handler())->get_menu_items('navbar_primary');
         $context['header_menu_right'] = (new Menus_Handler())->get_menu_items('navbar_primary_right');
         $context['footer_menu'] = (new Menus_Handler())->get_menu_items('footer');
+        $context['menu_socials'] = (new Menus_Handler())->get_menu_items('socials');
 
-        //  include(get_theme_file_path("/src/views/partial/navbars/navbar_1.php"));
+        $context['all_cf7'] = $this->get_all_cf7();
+
 
         return $context;
     }
 
 
+    public function get_all_cf7()
+    {
+
+        $args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
+        $rs = array();
+        if ($data = get_posts($args)) {
+            foreach ($data as $key) {
+                $rs[] = array(
+                    'id' => $key->ID,
+                    'title' => $key->post_title
+                );
+            }
+        } else {
+            $rs['0'] = esc_html__('No Contact Form found', 'text-domanin');
+        }
+
+        return $rs;
+
+    }
 
     public function theme_supports()
     {
@@ -179,6 +207,7 @@ class StarterSite extends Site
                 'navbar_primary' => __('Primary Menu', THEME_NAME),
                 'navbar_primary_right' => __('Primary right Menu', THEME_NAME),
                 'footer' => __('Footer Menu', THEME_NAME),
+                'socials' => __('Social network', THEME_NAME)
             )
         );
 
@@ -199,6 +228,66 @@ class StarterSite extends Site
             if (!has_nav_menu('footer')) {
                 set_theme_mod('nav_menu_locations', array(
                     'footer' => $menu_id
+                ));
+            }
+        }
+        // Verificar si el menú existe
+        $menu_name = 'Principal main';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+        // Si no existe, crearlo
+        if (!$menu_exists) {
+            $menu_id = wp_create_nav_menu($menu_name);
+            // Añadir elementos al menú si es necesario
+            wp_update_nav_menu_item($menu_id, 0, array(
+                'menu-item-title' => __('Home'),
+                'menu-item-classes' => 'home',
+                'menu-item-url' => home_url('/'),
+                'menu-item-status' => 'publish'
+            ));
+
+            if (!has_nav_menu('navbar_primary')) {
+                set_theme_mod('nav_menu_locations', array(
+                    'navbar_primary' => $menu_id
+                ));
+            }
+        }
+        // Verificar si el menú existe
+        $menu_name = 'Principal main right';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+        // Si no existe, crearlo
+        if (!$menu_exists) {
+            $menu_id = wp_create_nav_menu($menu_name);
+            // Añadir elementos al menú si es necesario
+            wp_update_nav_menu_item($menu_id, 0, array(
+                'menu-item-title' => __('Home'),
+                'menu-item-classes' => 'home',
+                'menu-item-url' => home_url('/'),
+                'menu-item-status' => 'publish'
+            ));
+
+            if (!has_nav_menu('navbar_primary_right')) {
+                set_theme_mod('nav_menu_locations', array(
+                    'navbar_primary_right' => $menu_id
+                ));
+            }
+        }
+        // Verificar si el menú existe
+        $menu_name = 'Socials';
+        $menu_exists = wp_get_nav_menu_object($menu_name);
+        // Si no existe, crearlo
+        if (!$menu_exists) {
+            $menu_id = wp_create_nav_menu($menu_name);
+            // Añadir elementos al menú si es necesario
+            wp_update_nav_menu_item($menu_id, 0, array(
+                'menu-item-title' => __('Home'),
+                'menu-item-classes' => 'home',
+                'menu-item-url' => home_url('/'),
+                'menu-item-status' => 'publish'
+            ));
+
+            if (!has_nav_menu('socials')) {
+                set_theme_mod('nav_menu_locations', array(
+                    'socials' => $menu_id
                 ));
             }
         }

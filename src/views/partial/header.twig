@@ -1,17 +1,19 @@
 
-    {# <pre>
-{{ dump(header_menu_right) }}
-    </pre> #}
+
+{# <pre>
+    {{ dump(theme_settings) }}
+</pre> #}
+    {% set logo = theme_settings['theme-settings'].global_header_logo %}
 
    <header class="absolute z-30 w-full dark">
             <div class=" x-auto lg:px-5 sm:max-w-s_95p sm:mx-auto lg:max-w-6xl sm:px-2">
-                <div class="flex items-center justify-between h-16 md:h-20">
+                <div class="flex items-center justify-between h-16 px-5 md:px-0 md:h-20">
 
                     <!-- Site branding -->
                     <div class="mr-4 shrink-0">
                         <!-- Logo -->
                         <a class="block transition duration-150 ease-in-out" href="{{ home_url }}">
-                            <img class="h-10 md:h-s_50 lg:h-s_75" src="{{ customize["section_configurations"]["header_logo"] }}" alt="">
+                            <img class="h-16 md:h-s_50 lg:h-s_75" src="{{ logo }}" alt="">
                         </a>
                     </div>
 

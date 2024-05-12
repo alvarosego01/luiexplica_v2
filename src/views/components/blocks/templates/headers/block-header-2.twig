@@ -1,0 +1,72 @@
+
+
+
+    {% set header_2_background_color = fields.header_2_background_color %}
+    {% set header_2_background_type = fields.header_2_background_type %}
+    {% set header_2_title = fields.header_2_title %}
+    {% set header_2_subtitle = fields.header_2_subtitle %}
+    {% set header_2_enable_media = fields.header_2_enable_media %}
+    {% set header_2_type_media = fields.header_2_type_media %}
+    {% set header_2_image_portrait = fields.header_2_image_portrait %}
+    {% set header_2_video = fields.header_2_video %}
+
+
+     <section class="relative">
+
+                <div class="absolute inset-0 bg-{{ header_2_background_color }} pointer-events-none -z-10 mb-36 lg:mb-0 lg:h-[48rem]
+                    {% if header_2_background_type == 'inclined' %}
+                [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]"
+                    {% endif %}
+                aria-hidden="true"></div>
+
+                <div class="relative max-w-6xl px-4 mx-auto sm:px-6">
+                    <div class="pt-32 md:pt-40">
+
+                        <div class="max-w-3xl pb-10 mx-auto text-center" data-aos="fade-up" >
+                            {% if header_2_title != '' %}
+                            <h1 class="mb-4 h1 text-generalWhite">
+                                {{ header_2_title }}
+                            </h1>
+                            {% endif %}
+                            {% if header_2_subtitle != '' %}
+                            <p class="text-xl text-gray-300">
+                            {{ header_2_subtitle }}
+                            </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="max-w-3xl mx-auto" x-data="{ modalExpanded: false }" data-aos="fade-up" data-aos-delay="100">
+                            <div class="relative flex items-center justify-center">
+
+                                {# <img class="mx-auto" src="{{ header_2_image_portrait }}" width="768" height="432" alt="Wof hero" /> #}
+                                  <img
+                                class="mx-auto md:h-auto md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none "
+                                src="{{ header_2_image_portrait}}"
+                                alt="Hero" />
+
+                                {% if header_2_type_media == 1 %}
+                                <button class="absolute group" @click.prevent="modalExpanded = true" aria-controls="modal">
+                                    <svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+                                        <circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44" />
+                                        <path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
+                                    </svg>
+                                </button>
+                                {% endif %}
+                            </div>
+
+                                      {% if header_2_type_media == 'video' %}
+
+                        {% include "components/common/modals/modal_video.twig" with {
+                            'modalExpanded': modalExpanded,
+                            'video': header_2_video
+                            }
+                        %}
+
+                    {% endif %}
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>

@@ -1,0 +1,87 @@
+
+
+{% set content_features_1_title = fields.content_features_1_title %}
+{% set content_features_1_features = fields.content_features_1_features %}
+
+
+<section>
+    <div class="max-w-6xl px-4 mx-auto sm:px-6">
+        <div class="py-8 space-y-10 md:py-20">
+            {% if content_features_1_title != '' %}
+            <div
+                data-aos="fade-up"
+                class="max-w-3xl mx-auto text-center lg:mx-0 lg:text-left">
+                <h2 class="leading-normal h2 text-slate-800">
+                    {{ content_features_1_title }}
+                </h2>
+            </div>
+            {% endif %}
+
+            <div
+                class="relative grid items-start max-w-sm gap-6 mx-auto lg:gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-y-20 md:max-w-2xl lg:max-w-none"
+                data-aos-id-blocks>
+                <div
+                    class="absolute inset-0 hidden -my-8 pointer-events-none md:-my-12 md:flex"
+                    aria-hidden="true">
+                    <div
+                        class="w-full h-full border-l last:border-r odd:hidden lg:odd:block border-slate-100"></div>
+                    <div
+                        class="w-full h-full border-l last:border-r odd:hidden lg:odd:block border-slate-100"></div>
+                    <div
+                        class="w-full h-full border-l last:border-r odd:hidden lg:odd:block border-slate-100"></div>
+                    <div
+                        class="w-full h-full border-l last:border-r odd:hidden lg:odd:block border-slate-100"></div>
+                </div>
+
+                {% if content_features_1_features|length > 0 %}
+                {% for item in content_features_1_features %}
+
+                {% set feature_type_icon = item.feature_type_icon %}
+                {% set feature_icon = item.feature_icon %}
+                {% set feature_image_icon = item.feature_image_icon %}
+
+                {% set feature_title = item.feature_title %}
+                {% set feature_description = item.feature_description %}
+
+                {% set index = index + 1 %}
+                <div
+                    class="relative space-y-2"
+                    data-aos="fade-up"
+                    data-aos-anchor="[data-aos-id-blocks]"
+                    data-aos-delay={{ index * 100 }}
+                    >
+                    {# icono #}
+
+                    {% if feature_type_icon == 'image' %}
+                    <div class="icon image">
+                        <img class="w-auto h-s_150" src="{{ feature_image_icon }}" alt="">
+                    </div>
+                    {% endif %}
+
+                    {% if feature_type_icon == 'icon' %}
+                    <div class="box-border p-2 rounded-full shadow-md icon h-fit w-fit bg-thirdBlue text-generalWhite">
+                        <i class="text-2xl h-8 w-8 lg:text-3xl lg:h-10  lg:w-10 flex justify-center items-center {{ feature_icon.provider }} {{ feature_icon.icon }}"></i>
+                    </div>
+                    {% endif %}
+
+
+                    {% if feature_title != '' %}
+                    <h3 class="mb-2 h4 ">
+                       {{ feature_title }}
+                    </h3>
+                    {% endif %}
+                    {% if feature_description != '' %}
+                    <div class="text-lg text-slate-500">
+                        {{ feature_description }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% endfor %}
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</section>

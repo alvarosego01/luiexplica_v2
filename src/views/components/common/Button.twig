@@ -13,25 +13,18 @@
     } %}
 #}
 
-
-{% set class = '' %}
+{% set _class = '' %}
 {% if type == 'primary' %}
-    {% set class = 'text-white bg-blue-700 hover:bg-primaryBlue' %}
+    {% set _class = 'text-white bg-blue-700 hover:bg-primaryBlue' %}
 {% endif %}
 {% if type == 'secondary' %}
-    {% set class = 'text-white bg-slate-600 hover:bg-slate-700' %}
+    {% set _class = 'text-white bg-slate-600 hover:bg-slate-700' %}
 {% endif %}
 
 
 <a
-    class="w-full
-     btn group
-    text-x
-    px-2 py-2
-    md:px-4 md:py-3
-    md:text-base
-     leading-normal
-        {{ class }}
+    class=" btn group text-xl w-fit px-5 py-2 md:px-6 md:py-2 md:text-base leading-normal
+        {{ _class }} {{ class }}
     "
     href="{{ path }}">
     {{ text }}

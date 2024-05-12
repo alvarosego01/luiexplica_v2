@@ -1,13 +1,13 @@
-<?php /* Block Name: Header T1 */
+<?php /* Block Name: Header T2 */
  ?>
 
 <?php
 
 $block_slug = $context['slug'];
-
-$fields = $block_content = get_fields();
+$fields = $context['fields'];
 
 $context = Timber::context();
+
 $context['fields'] = $fields;
 
 Timber::render(array('components/blocks/templates/headers/'.$block_slug.'.twig', 'components/blocks/templates/not_found.twig'), $context);

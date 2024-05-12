@@ -9,6 +9,10 @@
     },
     {
         "name": "generalWhite",
+        "color": "#F8FAFC"
+    },
+    {
+        "name": "whiteBlued",
         "color": "#F0F8FF"
     },
     {

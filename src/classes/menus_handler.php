@@ -21,7 +21,12 @@ class Menus_Handler
 
             foreach ($menu_items as $item) {
                 // Obtener los campos ACF asociados a cada ítem de menú
-                $acf_fields = get_fields($item->ID);
+                       $properties = [
+            'enable_is_button' => carbon_get_nav_menu_item_meta($item->ID, 'enable_is_button'),
+            'button_type' => carbon_get_nav_menu_item_meta($item->ID, 'button_type'),
+            'icon_type' => carbon_get_nav_menu_item_meta($item->ID, 'icon_type')
+        ];
+
 
                 $menu_items_data[] = [
                     'title' => $item->title,
@@ -30,7 +35,7 @@ class Menus_Handler
                     'children' => [],
                     'menu_item_parent' => $item->menu_item_parent,
                     'ID' => $item->ID,
-                    'properties' => $acf_fields  // Añadir los campos ACF al array
+                    'properties' => $properties
                 ];
             }
         }

@@ -24,6 +24,25 @@
                 "default": "© 2020 All Rights Reserved."
             }
         ]
+    },
+    {
+        "title": "TrustPilot",
+        "id": "section_config_trustpilot",
+        "priority": 30,
+        "controls": [
+            {
+                "id": "image_trustpilot",
+                "label": "Logo or image TrustPilot",
+                "type": "image",
+                "default": ""
+            },
+            {
+                "id": "link_trustpilot",
+                "label": "Link TrustPilot",
+                "type": "url",
+                "default": "https://"
+            }
+        ]
     }
 
 ]

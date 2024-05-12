@@ -32,3 +32,10 @@
     position: relative;
     left: 5px;
 }
+
+.trans {
+    transition: all 0.25s ease-in-out;
+
+}
+
+
