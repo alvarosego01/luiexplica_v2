@@ -1,0 +1,162 @@
+
+ {% set header_1_background_color = fields.header_1_background_color %}
+ {% set header_1_background_type = fields.header_1_background_type %}
+
+ {% set header_1_title = fields.header_1_title %}
+ {% set header_1_subtitle = fields.header_1_subtitle %}
+ {% set header_1_enable_media = fields.header_1_enable_media %}
+ {% set header_1_type_media = fields.header_1_type_media %}
+ {% set header_1_image_portrait = fields.header_1_image_portrait %}
+ {% set header_1_video = fields.header_1_video %}
+ {% set header_1_enable_buttons = fields.header_1_enable_buttons %}
+
+ {% set header_button_1_label = fields.header_button_1_label %}
+ {% set header_button_1_url = fields.header_button_1_url %}
+ {% set header_button_1_color = fields.header_button_1_color %}
+ {% set header_button_2_label = fields.header_button_2_label %}
+ {% set header_button_2_url = fields.header_button_2_url %}
+ {% set header_button_2_color = fields.header_button_2_color %}
+
+
+{% set bgColor = header_1_background_color %}
+{% if header_1_background_color == 'generalBlack' %}
+    {% set bgColor = 'bg-generalBlack' %}
+{% endif %}
+{% if header_1_background_color == 'primaryPink' %}
+    {% set bgColor = 'bg-primaryPink' %}
+{% endif %}
+{% if header_1_background_color == 'generalWhite' %}
+    {% set bgColor = 'bg-generalWhite' %}
+{% endif %}
+{% if header_1_background_color == 'generalWhite' %}
+    {% set bgColor = 'bg-whiteBlued' %}
+{% endif %}
+{% if header_1_background_color == 'complementBlue' %}
+    {% set bgColor = 'bg-complementBlue' %}
+{% endif %}
+{% if header_1_background_color == 'primaryBlue' %}
+    {% set bgColor = 'bg-primaryBlue' %}
+{% endif %}
+{% if header_1_background_color == 'secondaryBlue' %}
+    {% set bgColor = 'bg-secondaryBlue' %}
+{% endif %}
+{% if header_1_background_color == 'thirdBlue' %}
+    {% set bgColor = 'bg-thirdBlue' %}
+{% endif %}
+{% if header_1_background_color == 'slate-900' %}
+    {% set bgColor = 'bg-slate-900' %}
+{% endif %}
+
+<section class="relative">
+    <div
+        class="absolute inset-0 {{ bgColor }}  pointer-events-none -z-10
+        {% if header_1_background_type == 'inclined' %}
+            [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
+        {% endif %}
+        "
+        aria-hidden="true"></div>
+
+    <div class="relative max-w-6xl px-4 mx-auto sm:px-6">
+        <div class="pt-32 pb-20 md:pt-40 md:pb-44">
+            <div
+                class="max-w-xl mx-auto space-y-16 md:justify-center md:max-w-none md:flex md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0">
+                <div
+                    class="text-center md:text-left md:w-s_400 pcTab:min-w-[30rem] space-y-8 aos-init aos-animate"
+                    data-aos-delay="300"
+                    data-aos="fade-right">
+                    {% if header_1_title %}
+                    <h1 class="leading-normal h1 text-generalWhite">
+                        {{ header_1_title }}
+                    </h1>
+                    {% endif %}
+                    {% if header_1_subtitle %}
+                    <div class="text-xl leading-normal text-gray-300 ">
+                        {{ header_1_subtitle }}
+                    </div>
+                    {% endif %}
+                    {% if header_1_enable_buttons %}
+                    <div
+                        class="max-w-xs mx-auto space-y-4 sm:max-w-none sm:flex sm:justify-center md:justify-start sm:space-y-0 sm:space-x-4">
+                         {% if header_button_1_label != '' %}
+                        <div>
+                            {% include "components/common/Button.twig" with {
+                                'text': header_button_1_label,
+                                'type': header_button_1_color,
+                                'path': header_button_1_url
+                                }
+                            %}
+                        </div>
+                        {% endif %}
+                        {% if header_button_2_label != '' %}
+                        <div>
+                             {% include "components/common/Button.twig" with {
+                                'text': header_button_2_label,
+                                'type': header_button_2_color,
+                                'path': header_button_2_url,
+                                 'class': 'w-full'
+                                }
+                            %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% if header_1_enable_media %}
+                <div
+                    x-data="{ modalExpanded: false }"
+                    data-aos-delay="300"
+                    data-aos="fade-left"
+                    class="aos-init aos-animate">
+
+                    <div class="flex items-center justify-center">
+                        <div class="relative">
+                            <div
+                                class="absolute inset-0 mt-3 ml-3 translate-x-4 translate-y-4 border-2 pointer-events-none border-slate-700 -z-10"
+                                aria-hidden="true"></div>
+                            <img
+                                class="mx-auto md:h-s_300 md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none "
+                                src="{{ header_1_image_portrait}}"
+                                width="540"
+                                height="405"
+                                alt="Hero" />
+                        </div>
+                        {% if header_1_type_media == 'video' %}
+                        <button
+                            class="absolute group"
+                            @click.prevent="modalExpanded = true"
+                            aria-controls="modal">
+                            <svg
+                                class="w-16 h-16 fill-current sm:w-20 sm:h-20 group"
+                                viewBox="0 0 88 88"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle
+                                    class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100"
+                                    cx="44"
+                                    cy="44"
+                                    r="44"></circle>
+                                <path
+                                    class="text-blue-600"
+                                    d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"></path>
+                            </svg>
+                        </button>
+                        {% endif %}
+                    </div>
+
+                    {% if header_1_type_media == 'video' %}
+
+                        {% include "components/common/modals/modal_video.twig" with {
+                            'modalExpanded': modalExpanded,
+                            'video': header_1_video
+                            }
+                        %}
+
+                    {% endif %}
+
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

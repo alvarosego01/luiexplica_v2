@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","sources":["../../src/js/main.js"],"sourcesContent":["\r\nAOS.init({\r\n  once: true,\r\n  disable: 'phone',\r\n  duration: 500,\r\n  easing: 'ease-out-cubic',\r\n});\r\n\r\n"],"names":[],"mappings":"AACA,IAAI,KAAK;AAAA,EACP,MAAM;AAAA,EACN,SAAS;AAAA,EACT,UAAU;AAAA,EACV,QAAQ;AACV,CAAC;"}

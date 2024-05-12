@@ -1,0 +1,32 @@
+{% block html_head_container %}
+
+	{# {% include 'partial/html-header.twig' %} #}
+	{% include 'partial/head.twig' %}
+	{% block head %}{% endblock %}
+
+{% endblock %}
+
+
+<body class="{{body_class}} font-inter antialiased bg-white text-slate-800 tracking-tight" data-template="base.twig">
+
+	<div class="flex flex-col min-h-screen overflow-hidden">
+
+		{% include 'partial/header.twig' %}
+
+		<main class="grow">
+
+        {{ post.content }}
+
+        {# <pre>
+            {{ dump(theme_settings) }}
+        </pre> #}
+
+			{# {% set contact_form = '[contact-form-7 id="263"]' %}
+					{{ function('do_shortcode', contact_form) }} #}
+
+		</main>
+
+
+	</div>
+
+	{% include "partial/footer.twig" %}</body></html>

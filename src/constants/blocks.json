@@ -1,0 +1,1066 @@
+[
+    {
+        "name": "block-header-1",
+        "title": "Header 1",
+        "description": "Header 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "headers",
+        "keywords": "header, title",
+        "fields": [
+            {
+                "key": "header_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-900"
+            },
+            {
+                "key": "header_1_background_type",
+                "label": "Background type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Inclined",
+                        "value": "inclined"
+                    },
+                    {
+                        "label": "Flat",
+                        "value": "flat"
+                    }
+                ],
+                "default": "inclined"
+            },
+            {
+                "key": "header_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "header_1_subtitle",
+                "label": "Subtitle",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "header_1_enable_media",
+                "label": "Enable media",
+                "type": "checkbox",
+                "default": 1
+            },
+            {
+                "key": "header_1_type_media",
+                "label": "Type media",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Image",
+                        "value": "image"
+                    },
+                    {
+                        "label": "Video",
+                        "value": "video"
+                    }
+                ],
+                "default": "image",
+                "condition": {
+                    "key": "header_1_enable_media",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_1_image_portrait",
+                "label": "Portrait",
+                "type": "image",
+                "default": "",
+                "condition": {
+                    "key": "header_1_enable_media",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_1_video",
+                "label": "Video",
+                "type": "file",
+                "default": "",
+                "condition": {
+                    "key": "header_1_type_media",
+                    "value": "video"
+                }
+            },
+            {
+                "key": "header_1_enable_buttons",
+                "label": "Enable buttons",
+                "type": "checkbox",
+                "default": 1
+            },
+            {
+                "key": "header_button_1_label",
+                "label": "Button 1 text",
+                "type": "text",
+                "default": "Button",
+                "condition": {
+                    "key": "header_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_button_1_url",
+                "label": "Button 1 URL",
+                "type": "url",
+                "default": "#",
+                "condition": {
+                    "key": "header_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_button_1_color",
+                "label": "Button 1 Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "primary",
+                "condition": {
+                    "key": "header_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_button_2_label",
+                "label": "Button 2 text",
+                "type": "text",
+                "default": "Button",
+                "condition": {
+                    "key": "header_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_button_2_url",
+                "label": "Button 2 URL",
+                "type": "url",
+                "default": "#",
+                "condition": {
+                    "key": "header_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_button_2_color",
+                "label": "Button 2 Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "primary",
+                "condition": {
+                    "key": "header_1_enable_buttons",
+                    "value": 1
+                }
+            }
+        ]
+    },
+    {
+        "name": "block-cta-texts-btn-1",
+        "title": "CTA Texts and Buttons 1",
+        "description": "CTA Texts and Buttons 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "ctas",
+        "keywords": "cta, texts, buttons, 1",
+        "fields": [
+            {
+                "key": "cta_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-100"
+            },
+            {
+                "key": "cta_1_background_type",
+                "label": "Background type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Inclined",
+                        "value": "inclined"
+                    },
+                    {
+                        "label": "Flat",
+                        "value": "flat"
+                    }
+                ],
+                "default": "flat"
+            },
+            {
+                "key": "cta_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "cta_1_subtitle",
+                "label": "Subtitle",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "cta_1_enable_buttons",
+                "label": "Enable buttons",
+                "type": "checkbox",
+                "default": 1
+            },
+            {
+                "key": "cta_button_1_label",
+                "label": "Button 1 text",
+                "type": "text",
+                "default": "Button",
+                "condition": {
+                    "key": "cta_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_1_url",
+                "label": "Button 1 URL",
+                "type": "url",
+                "default": "#",
+                "condition": {
+                    "key": "cta_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_1_color",
+                "label": "Button 1 Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "primary",
+                "condition": {
+                    "key": "cta_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_2_label",
+                "label": "Button 2 text",
+                "type": "text",
+                "default": "Button",
+                "condition": {
+                    "key": "cta_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_2_url",
+                "label": "Button 2 URL",
+                "type": "url",
+                "default": "#",
+                "condition": {
+                    "key": "cta_1_enable_buttons",
+                    "value": 1
+                }
+            },
+            {
+                "key": "cta_button_2_color",
+                "label": "Button 2 Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "secondary",
+                "condition": {
+                    "key": "cta_1_enable_buttons",
+                    "value": 1
+                }
+            }
+        ]
+    },
+    {
+        "name": "block-content-features-1",
+        "title": "Content Features 1",
+        "description": "Content Features 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, features, 1",
+        "fields": [
+            {
+                "key": "content_features_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "content_features_1_features",
+                "label": "Features",
+                "type": "complex",
+                "layouts": [
+                    {
+                        "key": "feature_layout",
+                        "label": "Feature",
+                        "fields": [
+                            {
+                                "key": "feature_type_icon",
+                                "label": "Type icon",
+                                "type": "select",
+                                "options": [
+                                    {
+                                        "label": "Icon",
+                                        "value": "icon"
+                                    },
+                                    {
+                                        "label": "Image",
+                                        "value": "image"
+                                    }
+                                ],
+                                "default": "icon"
+                            },
+                            {
+                                "key": "feature_icon",
+                                "label": "Icon",
+                                "type": "icon",
+                                "default": "star",
+                                "condition": {
+                                    "key": "feature_type_icon",
+                                    "value": "icon"
+                                }
+                            },
+                            {
+                                "key": "feature_image_icon",
+                                "label": "Image",
+                                "type": "image",
+                                "default": "",
+                                "condition": {
+                                    "key": "feature_type_icon",
+                                    "value": "image"
+                                }
+                            },
+                            {
+                                "key": "feature_title",
+                                "label": "Title",
+                                "type": "rich_text",
+                                "default": "Feature"
+                            },
+                            {
+                                "key": "feature_description",
+                                "label": "Description",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "block-content-faqs-1",
+        "title": "Content FAQs 1",
+        "description": "Content FAQs 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, features, 1",
+        "fields": [
+            {
+                "key": "faqs_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-50"
+            },
+            {
+                "key": "faqs_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "faqs_1_items",
+                "label": "FAQS",
+                "type": "complex",
+                "layouts": [
+                    {
+                        "key": "faqs_1_layout",
+                        "label": "FAQ",
+                        "fields": [
+                            {
+                                "key": "faq_1_title",
+                                "label": "Title",
+                                "type": "text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "faq_1_description",
+                                "label": "Description",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "block-content-pricing-1",
+        "title": "Content Pricing 1",
+        "description": "Content pricing 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, features, 1",
+        "fields": [
+            {
+                "key": "pricing_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-900"
+            },
+            {
+                "key": "pricing_1_background_type",
+                "label": "Background type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Inclined",
+                        "value": "inclined"
+                    },
+                    {
+                        "label": "Flat",
+                        "value": "flat"
+                    }
+                ],
+                "default": "inclined"
+            },
+            {
+                "key": "pricing_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "pricing_1_enable_selector",
+                "label": "Enable price selector",
+                "type": "checkbox",
+                "default": 1
+            },
+            {
+                "key": "pricing_1_left_selector",
+                "label": "Text left selector",
+                "type": "text",
+                "default": "Pay Monthly",
+                "condition": {
+                    "key": "pricing_1_enable_selector",
+                    "value": 1
+                }
+            },
+            {
+                "key": "pricing_1_right_selector",
+                "label": "Text right selector",
+                "type": "text",
+                "default": "Pay Yearly",
+                "condition": {
+                    "key": "pricing_1_enable_selector",
+                    "value": 1
+                }
+            },
+            {
+                "key": "pricing_1_price_cards",
+                "label": "Pricing cards",
+                "type": "complex",
+                "layouts": [
+                    {
+                        "key": "pricing_1_layout",
+                        "label": "Pricing card",
+                        "fields": [
+                            {
+                                "key": "pricing_1_card_tag",
+                                "label": "Popular tag",
+                                "type": "text",
+                                "default": "Favorite ❤"
+                            },
+                            {
+                                "key": "pricing_1_card_title",
+                                "label": "Title",
+                                "type": "text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "pricing_1_price_left",
+                                "label": "Price left",
+                                "type": "number",
+                                "default": 0,
+                                "condition": {
+                                    "key": "pricing_1_enable_selector",
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "pricing_1_price_right",
+                                "label": "Price right",
+                                "type": "number",
+                                "default": 0
+                            },
+                            {
+                                "key": "pricing_1_card_subtitle",
+                                "label": "Subtitle",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "pricing_1_card_description",
+                                "label": "Description",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "pricing_1_card_button_label",
+                                "label": "Button 1 text",
+                                "type": "text",
+                                "default": "Button"
+                            },
+                            {
+                                "key": "pricing_1_card_button_url",
+                                "label": "Button 1 URL",
+                                "type": "url",
+                                "default": "#"
+                            },
+                            {
+                                "key": "pricing_1_card_button_color",
+                                "label": "Button 1 Color",
+                                "type": "select",
+                                "options": [
+                                    {
+                                        "label": "Primary",
+                                        "value": "primary"
+                                    },
+                                    {
+                                        "label": "Secondary",
+                                        "value": "secondary"
+                                    }
+                                ],
+                                "default": "primary"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "block-content-media-text-cta",
+        "title": "Content Media Text CTA",
+        "description": "Content Media Text CTA block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, features, 1",
+        "fields": [
+            {
+                "key": "media_text_cta_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "media_text_cta_1_subtitle",
+                "label": "Subtitle",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "media_text_cta_1_sections",
+                "label": "Sections",
+                "type": "complex",
+                "layouts": [
+                    {
+                        "key": "media_text_cta_1_layout",
+                        "label": "Info section",
+                        "fields": [
+                            {
+                                "key": "media_text_cta_1_title",
+                                "label": "Title",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "media_text_cta_1_description",
+                                "label": "Description",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "media_text_cta_1_enable_button",
+                                "label": "Enable button",
+                                "type": "checkbox",
+                                "default": 1
+                            },
+                            {
+                                "key": "media_text_cta_1_button_label",
+                                "label": "Button 1 text",
+                                "type": "text",
+                                "default": "Button",
+                                "condition": {
+                                    "key": "media_text_cta_1_enable_button",
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "media_text_cta_1_button_url",
+                                "label": "Button 1 URL",
+                                "type": "url",
+                                "default": "#",
+                                "condition": {
+                                    "key": "media_text_cta_1_enable_button",
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "media_text_cta_1_button_color",
+                                "label": "Button 1 Color",
+                                "type": "select",
+                                "options": [
+                                    {
+                                        "label": "Primary",
+                                        "value": "primary"
+                                    },
+                                    {
+                                        "label": "Secondary",
+                                        "value": "secondary"
+                                    }
+                                ],
+                                "default": "primary",
+                                "condition": {
+                                    "key": "media_text_cta_1_enable_button",
+                                    "value": 1
+                                }
+                            },
+                            {
+                                "key": "media_text_cta_1_type_media",
+                                "label": "Type media",
+                                "type": "select",
+                                "options": [
+                                    {
+                                        "label": "Image",
+                                        "value": "image"
+                                    },
+                                    {
+                                        "label": "Video",
+                                        "value": "video"
+                                    }
+                                ],
+                                "default": "image"
+                            },
+                            {
+                                "key": "media_text_cta_1_image_portrait",
+                                "label": "Portrait",
+                                "type": "image",
+                                "default": ""
+                            },
+                            {
+                                "key": "media_text_cta_1_video",
+                                "label": "Video",
+                                "type": "file",
+                                "default": "",
+                                "condition": {
+                                    "key": "media_text_cta_1_type_media",
+                                    "value": "video"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "block-content-article-cards-1",
+        "title": "Content Article Cards 1",
+        "description": "Content Article Cards 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, features, 1",
+        "fields": [
+            {
+                "key": "article_cards_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-900"
+            },
+            {
+                "key": "article_cards_1_background_type",
+                "label": "Background type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Inclined",
+                        "value": "inclined"
+                    },
+                    {
+                        "label": "Flat",
+                        "value": "flat"
+                    }
+                ],
+                "default": "inclined"
+            },
+            {
+                "key": "article_cards_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "article_cards_1_sections",
+                "label": "Sections",
+                "type": "complex",
+                "max": 3,
+                "layouts": [
+                    {
+                        "key": "article_cards_1_layout",
+                        "label": "Info section",
+                        "fields": [
+                            {
+                                "key": "article_cards_1_tag",
+                                "label": "Tag",
+                                "type": "text",
+                                "default": "🙂"
+                            },
+                            {
+                                "key": "article_cards_1_title",
+                                "label": "Title",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "article_cards_1_description",
+                                "label": "Description",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "article_cards_1_url",
+                                "label": "Url",
+                                "type": "url",
+                                "default": "https://"
+                            },
+                            {
+                                "key": "article_cards_1_image",
+                                "label": "Image",
+                                "type": "image",
+                                "default": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "block-count-down-1",
+        "title": "Block Count Down 1",
+        "description": "Block Count Down 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "ctas",
+        "keywords": "content, countdown, 1",
+        "fields": [
+            {
+                "key": "count_down_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-900"
+            },
+            {
+                "key": "count_down_1_background_type",
+                "label": "Background type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Inclined",
+                        "value": "inclined"
+                    },
+                    {
+                        "label": "Flat",
+                        "value": "flat"
+                    }
+                ],
+                "default": "inclined"
+            },
+            {
+                "key": "count_down_1_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "count_down_1_date",
+                "label": "Date",
+                "type": "date",
+                "format": "dd/mm/yyyy",
+                "default": ""
+            },
+            {
+                "key": "count_down_1_enable_button",
+                "label": "Enable button",
+                "type": "checkbox",
+                "default": 1
+            },
+            {
+                "key": "count_down_1_button_label",
+                "label": "Button 1 text",
+                "type": "text",
+                "default": "Button",
+                "condition": {
+                    "key": "count_down_1_enable_button",
+                    "value": 1
+                }
+            },
+            {
+                "key": "count_down_1_button_url",
+                "label": "Button URL",
+                "type": "url",
+                "default": "#",
+                "condition": {
+                    "key": "count_down_1_enable_button",
+                    "value": 1
+                }
+            },
+            {
+                "key": "count_down_1_button_color",
+                "label": "Button Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "primary",
+                "condition": {
+                    "key": "count_down_1_enable_button",
+                    "value": 1
+                }
+            }
+        ]
+    },
+    {
+        "name": "block-header-2",
+        "title": "Block header 2",
+        "description": "Block header 2",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "headers",
+        "keywords": "content, header, 2",
+        "fields": [
+            {
+                "key": "header_2_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-900"
+            },
+            {
+                "key": "header_2_background_type",
+                "label": "Background type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Inclined",
+                        "value": "inclined"
+                    },
+                    {
+                        "label": "Flat",
+                        "value": "flat"
+                    }
+                ],
+                "default": "inclined"
+            },
+            {
+                "key": "header_2_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "header_2_subtitle",
+                "label": "Subtitle",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "header_2_enable_media",
+                "label": "Enable media",
+                "type": "checkbox",
+                "default": 1
+            },
+            {
+                "key": "header_2_type_media",
+                "label": "Type media",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Image",
+                        "value": "image"
+                    },
+                    {
+                        "label": "Video",
+                        "value": "video"
+                    }
+                ],
+                "default": "image",
+                "condition": {
+                    "key": "header_2_enable_media",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_2_image_portrait",
+                "label": "Portrait",
+                "type": "image",
+                "default": "",
+                "condition": {
+                    "key": "header_2_enable_media",
+                    "value": 1
+                }
+            },
+            {
+                "key": "header_2_video",
+                "label": "Video",
+                "type": "file",
+                "default": "",
+                "condition": {
+                    "key": "header_2_type_media",
+                    "value": "video"
+                }
+            }
+        ]
+    },
+    {
+        "name": "block-content-testimonials-1",
+        "title": "Content Testimonials 1",
+        "description": "Content Testimonials 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, testimonials, 1",
+        "fields": [
+            {
+                "key": "testimonials_1_section_title",
+                "label": "Title",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "testimonials_1_sections",
+                "label": "Testimonials",
+                "type": "complex",
+                "layouts": [
+                    {
+                        "key": "testimonials_1_layout",
+                        "label": "Testimonial section",
+                        "fields": [
+                            {
+                                "key": "testimonials_1_image",
+                                "label": "Image avatar",
+                                "type": "image",
+                                "default": ""
+                            },
+                            {
+                                "key": "testimonials_1_title",
+                                "label": "Title",
+                                "type": "text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "testimonials_1_description",
+                                "label": "Description",
+                                "type": "rich_text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "testimonials_1_is_trustpilot",
+                                "label": "Is trustpilot?",
+                                "type": "checkbox",
+                                "default": 0
+                            },
+                            {
+                                "key": "testimonials_1_url",
+                                "label": "Testimonial url",
+                                "type": "url",
+                                "default": "https://",
+                                "condition": {
+                                    "key": "testimonials_1_is_trustpilot",
+                                    "value": 1
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+             {
+                "key": "testimonials_1_button_label",
+                "label": "Button text",
+                "type": "text",
+                "default": "Button"
+            },
+            {
+                "key": "testimonials_1_button_url",
+                "label": "Button URL",
+                "type": "url",
+                "default": "#"
+            },
+            {
+                "key": "testimonials_1_button_color",
+                "label": "Button Color",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Primary",
+                        "value": "primary"
+                    },
+                    {
+                        "label": "Secondary",
+                        "value": "secondary"
+                    }
+                ],
+                "default": "primary"
+            }
+        ]
+    }
+]

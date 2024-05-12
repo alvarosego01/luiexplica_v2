@@ -16,11 +16,14 @@
     }
   ],
   "require": {
-    "timber/timber": "2.x-dev"
+    "timber/timber": "2.x-dev",
+    "htmlburger/carbon-fields": "^3.6",
+    "htmlburger/carbon-field-icon": "^3.1"
   },
   "require-dev": {
     "automattic/wordbless": "^0.4.2",
-    "yoast/wp-test-utils": "^1.0"
+    "yoast/wp-test-utils": "^1.0",
+     "wp-coding-standards/wpcs": "^3.0"
   },
   "extra": {
     "installer-paths": {
@@ -32,8 +35,9 @@
   },
   "config": {
     "allow-plugins": {
-      "roots/wordpress-core-installer": true,
-      "composer/installers": true
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "roots/wordpress-core-installer": false
     }
   },
   "scripts": {

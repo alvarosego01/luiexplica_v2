@@ -1,0 +1,31 @@
+{#
+  Componente: Botón
+  Descripción: Renderiza un botón con texto, tipo y enlace personalizables.
+  Parámetros:
+    - text: Texto que se mostrará en el botón.
+    - type: Tipo de botón, por ejemplo 'primary', 'secondary'.
+    - path: Ruta o URL a la que el botón dirigirá al usuario.
+  Uso:
+    {% include "components/common/Buttons.twig" with {
+      'text': 'Solicitar demostración',
+      'type': 'primary',
+      'path': 'request-demo.html'
+    } %}
+#}
+
+{% set _class = '' %}
+{% if type == 'primary' %}
+    {% set _class = 'text-white bg-blue-700 hover:bg-primaryBlue' %}
+{% endif %}
+{% if type == 'secondary' %}
+    {% set _class = 'text-white bg-slate-600 hover:bg-slate-700' %}
+{% endif %}
+
+
+<a
+    class=" btn group text-xl w-fit px-5 py-2 md:px-6 md:py-2 md:text-base leading-normal
+        {{ _class }} {{ class }}
+    "
+    href="{{ path }}">
+    {{ text }}
+</a>
