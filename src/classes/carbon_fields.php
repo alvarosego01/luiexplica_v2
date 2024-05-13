@@ -5,6 +5,8 @@ namespace App\Classes;
 use Carbon_Fields\Block;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
+use Carbon_Fields\Carbon_Fields;
+
 
 class CarbonFields
 {
@@ -16,11 +18,9 @@ class CarbonFields
     function __init()
     {
         add_action('after_setup_theme', array($this, 'carbon_fields_init'));
-
         add_action('carbon_fields_register_fields', [$this, 'set_properties_nav_menu']);
-
         add_action('carbon_fields_register_fields', [$this, 'register_theme_ops']);
-
+        add_action('carbon_fields_register_fields', [$this, 'register_custom_postTypes_ops']);
         add_action('carbon_fields_register_fields', [$this, 'register_blocks']);
     }
 
@@ -31,7 +31,7 @@ class CarbonFields
     }
 
 
-      function load_theme_settings()
+    function load_theme_settings()
     {
         if (file_exists(get_theme_file_path("/src/constants/theme_options.json"))) {
 
@@ -47,64 +47,82 @@ class CarbonFields
                     $control_id = $field['key'];
                     $settings[$setting_id][$control_id] = carbon_get_theme_option($control_id);
                 }
-
             }
 
             return $settings;
-
         } else {
 
             return array();
-
         }
+    }
+
+    function load_custom_postType_settings($post_id)
+    {
+
+        if (file_exists(get_theme_file_path("/src/constants/forms_postTypes_options.json"))) {
+
+            $theme_settings = json_decode(file_get_contents(get_theme_file_path("/src/constants/forms_postTypes_options.json")), true);
+
+            $settings = array();
+
+            foreach ($theme_settings as $setting) {
+                $settings = $this->get_layer_postType_settings($setting, $post_id);
+            }
+
+            return $settings;
+        } else {
+
+            return array();
+        }
+    }
+
+    private function get_layer_postType_settings($post, $post_id, $setting_id = null)
+    {
+
+
+        $settings = array();
+
+        $setting_id = isset($post['post_type']) ? $post['post_type'] : $setting_id;
+        $settings = array();
+
+        foreach ($post['fields'] as $field) {
+            if ($field['type'] != 'special_post_type') {
+
+                $control_id = $field['key'];
+                $settings[$control_id] = carbon_get_post_meta($post_id, $control_id);
+            } else {
+
+                $settings['special_post_type'] = $this->get_layer_postType_settings($field, $post_id);
+            }
+        }
+
+
+
+
+        return $settings;
     }
 
 
     public function set_properties_nav_menu()
     {
-
-            Container::make('nav_menu_item', 'Menus custom field settings')
-                ->add_fields([
-                    Field::make('checkbox', 'enable_is_button', 'Enable is button')->set_option_value('yes'),
-                    Field::make('select', 'button_type', 'Type button')->add_options([
-                        'primary' => 'Primary',
-                        'secondary' => 'Secondary',
-                    ])
-                        ->set_default_value('primary')
-                        ->set_conditional_logic([
-                            [
-                                'field' => 'enable_is_button',
-                                'value' => true,
-                                'compare' => '='
-                            ]
-                        ]),
-                    Field::make('text', 'icon_type', 'Icon')
-                        ->set_attribute('placeholder', "bx bxl-tiktok")
-                ]);
-
-//   // Default options page
-// $basic_options_container = Container::make( 'theme_options', __( 'Basic Options' ) )
-//     ->add_fields( array(
-//         Field::make( 'header_scripts', 'crb_header_script', __( 'Header Script' ) ),
-//         Field::make( 'footer_scripts', 'crb_footer_script', __( 'Footer Script' ) ),
-//     ) );
-
-// // Add second options page under 'Basic Options'
-// Container::make( 'theme_options', __( 'Social Links' ) )
-//     ->set_page_parent( $basic_options_container ) // reference to a top level container
-//     ->add_fields( array(
-//         Field::make( 'text', 'crb_facebook_link', __( 'Facebook Link' ) ),
-//         Field::make( 'text', 'crb_twitter_link', __( 'Twitter Link' ) ),
-//     ) );
-
-// // Add third options page under "Appearance"
-// Container::make( 'theme_options', __( 'Customize Background' ) )
-//     ->set_page_parent( 'themes.php' ) // identificator of the "Appearance" admin section
-//     ->add_fields( array(
-//         Field::make( 'color', 'crb_background_color', __( 'Background Color' ) ),
-//         Field::make( 'image', 'crb_background_image', __( 'Background Image' ) ),
-//     ) );
-
+        Container::make('nav_menu_item', 'Menus custom field settings')
+            ->add_fields([
+                Field::make('checkbox', 'enable_is_button', 'Enable is button')->set_option_value('yes'),
+                Field::make('select', 'button_type', 'Type button')->add_options([
+                    'primary' => 'Primary',
+                    'secondary' => 'Secondary',
+                ])
+                    ->set_default_value('primary')
+                    ->set_conditional_logic([
+                        [
+                            'field' => 'enable_is_button',
+                            'value' => true,
+                            'compare' => '='
+                        ]
+                    ]),
+                Field::make('text', 'icon_type', 'Icon')
+                    ->set_attribute('placeholder', "bx bxl-tiktok")
+            ]);
     }
 
     public function register_blocks()
@@ -118,6 +136,22 @@ class CarbonFields
                 if (isset($blocks) && is_array($blocks) && !empty($blocks)) {
                     foreach ($blocks as $block) {
                         $this->register_block($block);
+                    }
+                }
+            }
+        }
+    }
+
+    public function register_custom_postTypes_ops()
+    {
+        if (file_exists(get_theme_file_path("/src/constants/forms_postTypes_options.json"))) {
+
+            $json_path = get_theme_file_path('/src/constants/forms_postTypes_options.json');
+            if (file_exists($json_path)) {
+                $settings = json_decode(file_get_contents($json_path), true);
+                if (isset($settings) && is_array($settings) && !empty($settings)) {
+                    foreach ($settings as $setting) {
+                        $this->register_custom_postType_ops($setting);
                     }
                 }
             }
@@ -141,30 +175,89 @@ class CarbonFields
         }
     }
 
-    public function register_theme_opt($setting ) {
+    private function register_custom_postType_ops($setting)
+    {
 
-         $fields = [];
+        $fields = [];
+        foreach ($setting['fields'] as $field) {
+
+            if ($field['type'] != 'special_post_type') {
+
+                $fields[] = $this->handler_fields($field);
+            } else {
+
+                $_fields = $this->set_special_post_type_field($field);
+                foreach ($_fields as $f) {
+                    $fields[] = $f;
+                }
+                $this->set_special_post_type_field($field);
+            }
+        }
+        $name = $setting['name'];
+        $post_type = $setting['post_type'];
+
+        Container::make('post_meta', $name)
+            ->where('post_type', '=', $post_type)
+            ->add_fields($fields);
+    }
+
+    private function set_special_post_type_field($field)
+    {
+
+        $fields = [];
+        foreach ($field['fields'] as $_field) {
+
+            switch ($_field['post_type']) {
+                case 'forms_post_type':
+
+                    $_aux = null;
+
+                    if ($_field['type'] == 'select_form_cf7') {
+
+                        $_aux = (new Forms_Handler())->set_select_form_cf7_field($_field);
+                    }
+
+                    if ($_field['type'] == 'select_form_behavior_cf7') {
+
+                        $_aux = (new Forms_Handler())->set_form_behavior_field($_field);
+                    }
+
+                    $carbon_field = $this->handler_fields($_aux);
+
+                    $fields[] = $carbon_field;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        return $fields;
+    }
+
+    private function register_theme_opt($setting)
+    {
+
+        $fields = [];
         foreach ($setting['fields'] as $field) {
             $fields[] = $this->handler_fields($field);
         }
         $name = $setting['name'];
-        // $icon = $setting['icon'];
 
-        $basic_options_container = Container::make( 'theme_options', $name )
-            ->add_fields( $fields );
+        $basic_options_container = Container::make('theme_options', $name)
+            ->add_fields($fields);
 
-        if(isset($setting['icon'])){
+        if (isset($setting['icon'])) {
             $basic_options_container->set_icon($setting['icon']);
         }
 
-        if(isset($setting['page'])) {
+        if (isset($setting['page'])) {
             $basic_options_container->set_page_file($setting['page']);
         }
 
-        if(isset($setting['parent'])) {
+        if (isset($setting['parent'])) {
             $basic_options_container->set_page_parent($setting['parent']);
         }
-
     }
 
     function handler_fields($field)
@@ -174,6 +267,7 @@ class CarbonFields
         $field_label = $field['label'];
         $field_name = $field['key'];
         $default_value = $field['default'] ?? '';
+        $placeholder = $field['placeholder'] ?? '';
 
         $finalType = $field_type;
 
@@ -208,8 +302,15 @@ class CarbonFields
                 ->set_attribute('min', 0);
         }
 
-        // Configuraciones adicionales dependiendo del tipo de campo
         if ($field_type === 'select' && isset($field['options'])) {
+            $options = [];
+            foreach ($field['options'] as $option) {
+                $options[$option['value']] = $option['label'];
+            }
+            $carbon_field->add_options($options);
+        }
+
+        if ($field_type === 'multiselect' && isset($field['options'])) {
             $options = [];
             foreach ($field['options'] as $option) {
                 $options[$option['value']] = $option['label'];
@@ -255,6 +356,12 @@ class CarbonFields
                 ->add_fontawesome_options();
         }
 
+
+        if (isset($placeholder) && $placeholder != '') {
+
+            $carbon_field->set_attribute('placeholder', $placeholder);
+        }
+
         if ($field_type === 'complex') {
 
             $carbon_field->set_layout('tabbed-vertical');
@@ -277,7 +384,6 @@ class CarbonFields
         }
 
         return $carbon_field;
-
     }
 
 

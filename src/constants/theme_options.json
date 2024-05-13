@@ -42,6 +42,22 @@
                 "default": "https://www.trustpilot.com/"
             }
         ]
+    },
+    {
+        "name": "Page Forms Settings",
+        "parent": "theme-settings",
+        "page": "page-forms-settings",
+        "fields": [
+
+        ]
+    },
+    {
+        "name": "Popup Modals Settings",
+        "parent": "theme-settings",
+        "page": "popup-modals-settings",
+        "fields": [
+
+        ]
     }
 
 ]

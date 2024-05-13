@@ -8,6 +8,12 @@
         "folder": "headers",
         "keywords": "header, title",
         "fields": [
+             {
+                "key": "header_1_enable_form",
+                "label": "Enable form",
+                "type": "checkbox",
+                "default": 0
+            },
             {
                 "key": "header_1_background_color",
                 "label": "Background color",

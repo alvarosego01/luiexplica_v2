@@ -20,13 +20,13 @@ class Menus_Handler
             $menu_items = wp_get_nav_menu_items($menu->term_id);
 
             foreach ($menu_items as $item) {
-                // Obtener los campos ACF asociados a cada ítem de menú
-                       $properties = [
-            'enable_is_button' => carbon_get_nav_menu_item_meta($item->ID, 'enable_is_button'),
-            'button_type' => carbon_get_nav_menu_item_meta($item->ID, 'button_type'),
-            'icon_type' => carbon_get_nav_menu_item_meta($item->ID, 'icon_type')
-        ];
 
+                // Obtener los campos ACF asociados a cada ítem de menú
+                $properties = [
+                    'enable_is_button' => carbon_get_nav_menu_item_meta($item->ID, 'enable_is_button'),
+                    'button_type' => carbon_get_nav_menu_item_meta($item->ID, 'button_type'),
+                    'icon_type' => carbon_get_nav_menu_item_meta($item->ID, 'icon_type')
+                ];
 
                 $menu_items_data[] = [
                     'title' => $item->title,
