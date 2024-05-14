@@ -1,0 +1,52 @@
+
+
+{#
+    array(1) {
+  [0]=>
+  array(5) {
+    ["ID"]=>
+    int(395)
+    ["post_title"]=>
+    string(11) "Form global"
+    ["post_name"]=>
+    string(11) "form-global"
+    ["post_type"]=>
+    string(15) "forms_post_type"
+    ["post_fields"]=>
+    array(3) {
+      ["form_type"]=>
+      string(13) "custom_form_7"
+      ["embedded_form"]=>
+      string(0) ""
+      ["special_post_type"]=>
+      array(2) {
+        ["form_cf7"]=>
+        int(263)
+        ["form_behavior_cf7"]=>
+        array(2) {
+          [0]=>
+          int(7)
+          [1]=>
+          string(9) "all_pages"
+        }
+      }
+    }
+  }
+}
+
+
+ #}
+
+
+
+{% if form[0].post_fields.form_type == 'custom_form_7' %}
+{% set form_id = form[0].post_fields.special_post_type.form_cf7 %}
+
+<section class="relative p-5 px-6 py-5 bg-white shadow-lg">
+    {% set contact_form = '[contact-form-7 id="' ~ form_id ~ '"]' %}
+	{{ function('do_shortcode', contact_form) }}
+</section>
+{% endif %}
+{% if form[0].post_fields.form_type == 'embedded_form' %}
+    {{ form[0].post_fields.embedded_form }}
+{% endif %}

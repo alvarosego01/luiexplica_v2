@@ -9,13 +9,18 @@
 
 <body class="{{body_class}} font-inter antialiased bg-white text-slate-800 tracking-tight" data-template="base.twig">
 
-	<div class="flex flex-col min-h-screen overflow-hidden">
+	<div class="flex flex-col overflow-hidden h-fit">
 
 		{% include 'partial/header.twig' %}
 
 		<main class="grow">
 
-        {{ post.content }}
+        {# {{ post.content }} #}
+
+        {% block content %}
+			Sorry, no content
+		{% endblock %}
+
 
         {# <pre>
             {{ dump(theme_settings) }}
@@ -23,6 +28,12 @@
 
 			{# {% set contact_form = '[contact-form-7 id="263"]' %}
 					{{ function('do_shortcode', contact_form) }} #}
+
+
+                         {# {% include "components/common/forms/form.twig" with {
+                            'form': form_by_page,
+                            }
+                        %} #}
 
 		</main>
 
