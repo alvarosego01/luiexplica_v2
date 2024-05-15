@@ -527,11 +527,7 @@
                                 "key": "pricing_1_price_left",
                                 "label": "Price left",
                                 "type": "number",
-                                "default": 0,
-                                "condition": {
-                                    "key": "pricing_1_enable_selector",
-                                    "value": 1
-                                }
+                                "default": 0
                             },
                             {
                                 "key": "pricing_1_price_right",

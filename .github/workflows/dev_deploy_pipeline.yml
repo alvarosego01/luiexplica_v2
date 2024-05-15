@@ -37,8 +37,7 @@ jobs:
 
       - name: Archive Build Output
         # run: zip -r build.zip vendor static src resources assets
-        run: zip -r build.zip . -x "node_modules/***" ".github/***" "package.json" "tailwind.config.js" "tsconfig.json" "vite.config.js"
-
+        run: zip -r build.zip . -x "node_modules" ".github" "yarn.lock" "postcss.config.js" "package.json" "tailwind.config.js" "tsconfig.json" "vite.config.js"
 
       - name: Copy Files to Server
         uses: appleboy/scp-action@master

@@ -46,7 +46,7 @@
                                 <header>
                                     <div class="flex items-center mb-4">
                                         <div class="relative mr-3">
-                                            <img class="rounded-full shrink-0 md:h-10" src="{{ testimonials_1_image }}" />
+                                            <img class="block object-cover object-center h-12 rounded-full max-w-12 min-h-12 max-h-12 min-w-12 shrink-0" src="{{ testimonials_1_image }}" />
                                             <div class="absolute top-0 right-0 -mr-2" aria-hidden="true">
                                                 <svg class="fill-blue-600" width="20" height="16" viewBox="0 0 20 16">
                                                     <path d="M2.76 16c2.577 0 5.154-3.219 5.154-5.996 0-1.357-.613-2.272-1.748-2.272s-2.27.726-3.283 1.64C3.16 6.439 5.613 3.346 9.571.885L9.233 0C3.466 2.903 0 7.732 0 12.213 0 14.517.828 16 2.76 16Zm10.43 0c2.577 0 5.154-3.219 5.154-5.996 0-1.357-.614-2.272-1.749-2.272-1.135 0-2.27.726-3.282 1.64.276-2.934 2.73-6.027 6.687-8.488L19.663 0c-5.767 2.903-9.234 7.732-9.234 12.213 0 2.304.829 3.787 2.761 3.787Z" />
@@ -54,10 +54,10 @@
                                             </div>
                                         </div>
 
-                                        <h3 class="text-base font-bold">
+                                        <h3 class="text-base font-bold leading-normal">
                                             {% if testimonials_1_url != '' %}
-                                            <a class="trans hover:text-emerald-500"  href="{{ testimonials_1_url }}">
-                                            {{ testimonials_1_title }}
+                                            <a class="leading-normal trans hover:text-emerald-500"  href="{{ testimonials_1_url }}">
+                                                {{ testimonials_1_title }}
                                             </a>
                                             {% else %}
                                             {{ testimonials_1_title }}
