@@ -14,7 +14,9 @@
 
 			{# <div class="hidden md:block absolute top-0 left-1/2 -ml-px -mt-4 w-0.5 h-12 bg-slate-200" aria-hidden="true"></div> #}
 
-            <div class="space-y-10">
+            <div class="space-y-10"
+            data-aos="fade-in"
+            >
               {% if media_text_cta_1_title != '' %}
                     <h2 class="leading-normal text-center h2 text-slate-800">
                         {{ media_text_cta_1_title }}
@@ -57,19 +59,18 @@
                         {% endif %}
                     ">
 
-					<div class="md:min-w-[30rem]" data-aos="fade-left">
+					<div class="md:w-6/12" data-aos="fade-left"
+                    data-aos-delay={{ index * 100 }}
+                    >
 						<h2 class="mb-4 h3 md:text-4xl text-slate-800 ">
                             {{ media_text_cta_1_title }}
 						</h2>
-						<p class="pl-4 mb-8 text-2xl border-l-2 text-slate-500 border-slate-800">
+						<div class="pl-4 mb-8 text-xl border-l-2 text-slate-500 border-slate-800">
                             {{ media_text_cta_1_description }}
-                        </p>
+                        </div>
 
-
-
-                            {% if media_text_cta_1_enable_button == 1 %}
-                    <div
-                        class="flex justify-start w-full space-y-4 ">
+                        {% if media_text_cta_1_enable_button == 1 %}
+                            <div class="flex justify-start w-full space-y-4 ">
                                 {% include "components/common/Button.twig" with {
                                     'text': media_text_cta_1_button_label,
                                     'path': media_text_cta_1_button_url,
@@ -81,10 +82,12 @@
 
 					</div>
 
-					<div class="flex items-center justify-center" data-aos="fade-right">
+					<div class="flex items-center justify-center md:w-6/12" data-aos="fade-right"
+                    data-aos-delay={{ index * 150 }}
+                    >
 						<div class="relative">
 							<div class="absolute inset-0 -translate-x-4 -translate-y-4 border-2 pointer-events-none border-slate-200 -z-10" aria-hidden="true"></div>
-							<img class="object-cover w-auto mx-auto md:h-s_250 pcTab:h-s_350 lg:h-s_500 " src="{{ media_text_cta_1_image_portrait }}" />
+							<img class="object-cover object-center w-auto mx-auto md:h-s_250 pcTab:h-s_350 lg:h-s_500 " src="{{ media_text_cta_1_image_portrait }}" />
 						</div>
                            {% if media_text_cta_1_type_media == 'video' %}
 

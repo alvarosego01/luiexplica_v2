@@ -6,10 +6,6 @@ $block_slug = $context['slug'];
 $fields = $context['fields'];
 
 
-if( count($fields['article_cards_1_sections']) > 3 ){
-
-}
-
 $context = Timber::context();
 
 $context['fields'] = $fields;

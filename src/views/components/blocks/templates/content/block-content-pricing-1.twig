@@ -92,7 +92,8 @@
                         lg:col-start-5
                     {% endif %}
 
-                    " data-aos="fade-up"  data-aos-delay={{ index * 100 }}>
+                    " data-aos="fade-up"  data-aos-delay={{ index * 100 }}
+                    >
 
                         {% if pricing_1_card_tag != '' %}
                         <div class="absolute top-0 right-0 mr-6 -mt-4">
@@ -103,10 +104,10 @@
                         {% endif %}
 
 						<div class="pb-4 mb-4 border-b border-slate-200">
-							<div class="mb-3 text-lg font-semibold text-slate-800">
+							<div class="mb-5 text-lg font-semibold leading-tight text-slate-800">
                                 {{ pricing_1_card_title }}
                             </div>
-							<div class="inline-flex items-baseline mb-3">
+							<div class="inline-flex items-baseline mb-2">
 								<span class="font-medium h3 text-slate-500">$</span>
 								<span x-text="active ? {{ pricing_1_price_right }} : {{ pricing_1_price_left }}" class="leading-7 h2 text-slate-800"></span>
 								<span class="font-medium text-slate-400">/USD</span>
@@ -116,7 +117,7 @@
                             </div>
 						</div>
 						<div class="mb-3 font-medium">
-                       y     {{ pricing_1_card_description }}
+                           {{ pricing_1_card_description }}
                         </div>
 
 						<div class="p-3 rounded bg-slate-50">
