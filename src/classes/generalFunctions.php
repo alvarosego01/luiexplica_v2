@@ -28,5 +28,17 @@ class generalFunctions
         }
     }
 
+    public function get_color($color, $default)
+    {
+        if(!isset($color)){
+            return $default;
+        }
+        if ($color == '' || $color == 'default') {
+            return $default;
+        } else {
+            return $color;
+        }
+    }
+
 
 }

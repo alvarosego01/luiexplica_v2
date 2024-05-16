@@ -1,0 +1,28 @@
+
+{% set parag_1_enable_media = fields.parag_1_enable_media %}
+{% set parag_1_image = fields.parag_1_image %}
+{% set parag_1_background_color = fields.parag_1_background_color %}
+{% set parag_1_description = fields.parag_1_description %}
+{% set parag_1_description_color = fields.parag_1_description_color %}
+
+<section class="bg-{{ get_color(parag_1_background_color, 'white') }} space-y-5 md:space-y-10 py-8 md:py-20 block-content-parag-1">
+    {% if parag_1_enable_media == 1 %}
+	<div class="flex items-center justify-center aos-init aos-animate">
+		<img class="object-cover w-auto mx-auto h-s_400" src="{{ parag_1_image }}" data-aos="fade-up" data-aos-delay="150">
+	</div>
+    {% endif %}
+
+	<div class="max-w-6xl px-4 mx-auto sm:px-6">
+		<div class="">
+
+			<div class="max-w-3xl mx-auto">
+				<div class="text-lg text-slate-500
+                text-{{ get_color(parag_1_description_color, 'slate-500') }}
+                "      data-aos="fade-up" data-aos-delay="300">
+                    {{ parag_1_description }}
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>

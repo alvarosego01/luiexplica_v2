@@ -2,7 +2,9 @@
 {% set cta_1_background_color = fields.cta_1_background_color %}
 {% set cta_1_background_type = fields.cta_1_background_type %}
 {% set cta_1_title = fields.cta_1_title %}
+{% set cta_1_title_color = fields.cta_1_title_color %}
 {% set cta_1_subtitle = fields.cta_1_subtitle %}
+{% set cta_1_subtitle_color = fields.cta_1_subtitle_color %}
 {% set cta_1_enable_buttons = fields.cta_1_enable_buttons %}
 {% set cta_button_1_label = fields.cta_button_1_label %}
 {% set cta_button_1_url = fields.cta_button_1_url %}
@@ -11,7 +13,7 @@
 {% set cta_button_2_url = fields.cta_button_2_url %}
 {% set cta_button_2_color = fields.cta_button_2_color %}
 
-<section class="{{ 'bg-' ~ cta_1_background_color }}
+<section class=" bg-{{ get_color(cta_1_background_color, 'white') }} block-cta-texts-btn-1
      {% if cta_1_background_type == 'inclined' %}
             [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
         {% endif %}
@@ -24,12 +26,16 @@
                 data-aos="fade-in"
                 class="relative space-y-5">
                     {% if cta_1_title != '' %}
-                    <h2 class="leading-normal h2 text-slate-800">
+                    <h2 class="leading-normal h2
+                        text-{{ get_color(cta_1_title_color, 'slate-800') }}
+                    ">
                         {{ cta_1_title }}
                     </h2>
                     {% endif %}
                     {% if cta_1_subtitle != '' %}
-                    <div class="text-xl leading-normal text-slate-500">
+                    <div class="text-xl leading-normal
+                        text-{{ get_color(cta_1_subtitle_color, 'slate-500') }}
+                    ">
                         {{ cta_1_subtitle }}
                     </div>
                     {% endif %}

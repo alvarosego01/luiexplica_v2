@@ -3,6 +3,7 @@
 {% set count_down_1_background_color = fields.count_down_1_background_color %}
 {% set count_down_1_background_type = fields.count_down_1_background_type %}
 {% set count_down_1_title = fields.count_down_1_title %}
+{% set count_down_1_title_color = fields.count_down_1_title_color %}
 {% set count_down_1_date = fields.count_down_1_date %}
 
 
@@ -12,11 +13,9 @@
 {% set count_down_1_button_color = fields.count_down_1_button_color %}
 
 
-<section class="relative">
+<section class="relative block-count-down-1">
 
-	{% set bg = (count_down_1_background_color != '')? count_down_1_background_color : 'slate-900' %}
-
-	<div class="absolute inset-0 bg-{{ bg }}
+	<div class="absolute inset-0 bg-{{ get_color(count_down_1_background_color, 'slate-900') }}
 				                 pointer-events-none -z-10
 				                      {% if count_down_1_background_type == 'inclined' %}
 				                      [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]  h-52 md:h-72 md:mb-s_75
@@ -29,7 +28,9 @@
 
 			{% if count_down_1_title != '' %}
 				<div data-aos="fade-up" class="max-w-3xl pb-12 mx-auto text-center md:pb-15">
-					<h2 class="h2 text-slate-100">
+					<h2 class="h2
+                        text-{{ get_color(count_down_1_title_color, 'slate-100') }}
+                    ">
 						{{ count_down_1_title }}
 					</h2>
 				</div>
