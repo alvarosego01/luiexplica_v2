@@ -295,6 +295,8 @@ class StarterSite extends Site
 
         $twig->addFilter(new Twig\TwigFilter('myfoo', [$this, 'myfoo']));
 
+        $twig->addFunction(new Twig\TwigFunction('get_color', [new generalFunctions(), 'get_color']));
+
         return $twig;
     }
 

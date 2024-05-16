@@ -7,6 +7,28 @@ module.exports = {
         "./resources/**/*.{js,jsx,ts,tsx,vue}",
     ],
     darkMode: 'class',
+    content: [
+        './**/*.html',
+        './js/**/*.js',
+        "./src/**/*.twig",
+        "./src/**/*.php",
+        "./resources/**/*.{js,jsx,ts,tsx,vue}",
+        // Añade aquí todas las rutas de tus archivos
+    ],
+    safelist: generateSafelist([
+        'slate-900',
+        'blue-500',
+        'blue-600',
+        'generalBlack',
+        'primaryPink',
+        'generalWhite',
+        'whiteBlued',
+        'complementBlue',
+        'primaryBlue',
+        'secondaryBlue',
+        'thirdBlue',
+        'darkPurple',
+    ]),
     theme: {
         extend: {
             colors: {
@@ -19,15 +41,15 @@ module.exports = {
                 },
                 "generalBlack": "#242424",
                 "primaryPink": "#FF419B",
-                "generalWhite": "#F8FAFC",
                 "whiteBlued": "#F0F8FF",
+                "generalWhite": "#F8FAFC",
                 "complementBlue": "#5BE7FF",
                 "primaryBlue": "#0085F4",
                 "secondaryBlue": "#00378E",
                 "thirdBlue": "#003366",
                 "darkPurple": "#1B1D5C",
             },
-             screens: {
+            screens: {
                 'xs': '400px',
                 'sm': '640px',
                 'md': '768px',
@@ -55,7 +77,7 @@ module.exports = {
                 '5xl': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
                 '6xl': ['4rem', { lineHeight: '1.1562', letterSpacing: '-0.01em' }],
             },
-               spacing: {
+            spacing: {
                 's_2': '2px',
                 's_2.5': '2.5px',
                 's_5': '5px',
@@ -214,15 +236,45 @@ module.exports = {
             },
         },
         variants: {
-    extend: {
-      backgroundColor: ['responsive', 'hover', 'focus', 'active'],
-      textColor: ['responsive', 'hover', 'focus', 'active'],
-      borderColor: ['responsive', 'hover', 'focus', 'active'],
-    },
-  },
+            extend: {
+                backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+                textColor: ['responsive', 'hover', 'focus', 'active'],
+                borderColor: ['responsive', 'hover', 'focus', 'active'],
+            },
+        },
     },
     plugins: [
         // eslint-disable-next-line global-require
         require('@tailwindcss/forms'),
     ],
 };
+
+
+function generateSafelist(colors) {
+    const prefixes = [
+        'text',
+        'bg',
+        'border',
+        'ring',
+        'ring-offset',
+        'placeholder',
+        'shadow',
+        'outline',
+        'divide',
+        'accent',
+        'caret',
+        'fill',
+        'stroke',
+        'decoration',
+        'from',
+        'to',
+        'via'
+    ];
+    const safelist = [];
+    colors.forEach(color => {
+        prefixes.forEach(prefix => {
+            safelist.push(`${prefix}-${color}`);
+        });
+    });
+    return safelist;
+}

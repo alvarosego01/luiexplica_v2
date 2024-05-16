@@ -282,7 +282,6 @@ class CarbonFields
             $finalType = 'text';
         }
 
-        // Crear el campo correspondiente
         $carbon_field = Field::make($finalType, $field_name, $field_label);
 
         if ($field_type === 'image' || $field_type === 'file') {
@@ -327,7 +326,7 @@ class CarbonFields
                 $colors = json_decode(file_get_contents(get_theme_file_path("/src/constants/colors.json")), true);
                 $options = [];
                 foreach ($colors as $option) {
-                    $options[$option['name']] = $option['name'];
+                    $options[$option['name']] = $option['name']. ' - ' . $option['color'];
                 }
                 $options[$default_value] = $default_value;
                 $carbon_field = Field::make('select', $field_name, $field_label)

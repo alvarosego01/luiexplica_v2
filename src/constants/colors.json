@@ -12,6 +12,10 @@
         "color": "#F8FAFC"
     },
     {
+        "name": "white",
+        "color": "#fff"
+    },
+    {
         "name": "whiteBlued",
         "color": "#F0F8FF"
     },
@@ -30,6 +34,10 @@
     {
         "name": "thirdBlue",
         "color": "#003366"
+    },
+    {
+        "name": "darkPurple",
+        "color": "#1B1D5C"
     }
 
 ]

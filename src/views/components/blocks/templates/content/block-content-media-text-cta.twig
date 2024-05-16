@@ -2,15 +2,19 @@
 
 
 {% set media_text_cta_1_title = fields.media_text_cta_1_title %}
+{% set media_text_cta_1_title_color = fields.media_text_cta_1_title_color %}
 {% set media_text_cta_1_sections = fields.media_text_cta_1_sections %}
 {% set media_text_cta_1_subtitle = fields.media_text_cta_1_subtitle %}
+{% set media_text_cta_1_subtitle_color = fields.media_text_cta_1_subtitle_color %}
+{% set media_text_cta_1_group_title_color = fields.media_text_cta_1_group_title_color %}
+{% set media_text_cta_1_group_description_color = fields.media_text_cta_1_group_description_color %}
 
 
-<section>
+<section class="block-content-media-text-cta">
 
 	<div class="relative max-w-6xl px-4 mx-auto sm:px-6">
 		<div
-			class="py-12 md:py-18">
+			class="py-12 md:py-20">
 
 			{# <div class="hidden md:block absolute top-0 left-1/2 -ml-px -mt-4 w-0.5 h-12 bg-slate-200" aria-hidden="true"></div> #}
 
@@ -18,12 +22,18 @@
             data-aos="fade-in"
             >
               {% if media_text_cta_1_title != '' %}
-                    <h2 class="leading-normal text-center h2 text-slate-800">
+                    <h2 class="leading-normal text-center h2
+                     text-{{ get_color(media_text_cta_1_title_color, 'slate-800') }}
+                    ">
                         {{ media_text_cta_1_title }}
                     </h2>
                     {% endif %}
                     {% if media_text_cta_1_subtitle != '' %}
-                    <div class="text-xl leading-normal text-center text-slate-500">{{ media_text_cta_1_subtitle }}</div>
+                    <div class="text-xl leading-normal text-center
+                        text-{{ get_color(media_text_cta_1_subtitle_color, 'slate-500') }}
+                    ">
+                        {{ media_text_cta_1_subtitle }}
+                    </div>
                     {% endif %}
 
             </div>
@@ -62,10 +72,14 @@
 					<div class="md:w-6/12" data-aos="fade-left"
                     data-aos-delay={{ index * 100 }}
                     >
-						<h2 class="mb-4 h3 md:text-4xl text-slate-800 ">
+						<h2 class="mb-4 h3 md:text-4xl
+                            text-{{ get_color(media_text_cta_1_group_title_color, 'slate-800')}}
+                         ">
                             {{ media_text_cta_1_title }}
 						</h2>
-						<div class="pl-4 mb-8 text-xl border-l-2 text-slate-500 border-slate-800">
+						<div class="pl-4 mb-8 text-xl border-l-2 border-slate-800
+                            text-{{ get_color(media_text_cta_1_group_description_color, 'slate-500')}}
+                        ">
                             {{ media_text_cta_1_description }}
                         </div>
 

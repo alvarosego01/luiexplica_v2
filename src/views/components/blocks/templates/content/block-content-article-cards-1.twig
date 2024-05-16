@@ -5,9 +5,12 @@
 {% set article_cards_1_background_type = fields.article_cards_1_background_type %}
 
 {% set article_cards_1_title = fields.article_cards_1_title %}
+{% set article_cards_1_title_color = fields.article_cards_1_title_color %}
 {% set article_cards_1_sections = fields.article_cards_1_sections %}
+{% set article_cards_1_group_title_color = fields.article_cards_1_group_title_color %}
+{% set article_cards_1_group_description_color = fields.article_cards_1_group_description_color %}
 
-    <section class="relative">
+    <section class="relative block-content-article-cards-1">
 
                 {% set bg = (article_cards_1_background_color != '')? article_cards_1_background_color : 'slate-900' %}
 
@@ -26,7 +29,7 @@
                         <div
                                 data-aos="fade-up"
                         class="max-w-3xl pb-12 mx-auto text-center md:pb-20">
-                            <h2 class="h2 text-slate-100">
+                            <h2 class="h2 text-{{ get_color(article_cards_1_title_color, 'slate-100') }} ">
                             {{ article_cards_1_title }}
                             </h2>
                         </div>
@@ -64,13 +67,17 @@
                                     </div>
                                 </a>
                                 <h3 class="mb-2 h4 ">
-                                    <a class="text-slate-800 hover:underline hover:decoration-blue-100" {% if article_cards_1_url != '' %} href="{{ article_cards_1_url }}" {% endif %}>
+                                    <a class=" hover:underline hover:decoration-blue-100
+                                    text-{{ get_color(article_cards_1_group_title_color, 'blue-800') }}
+                                    " {% if article_cards_1_url != '' %} href="{{ article_cards_1_url }}" {% endif %}>
                                     {{ article_cards_1_title }}
                                     </a>
                                 </h3>
-                                <p class="text-lg text-slate-500">
+                                <div class="text-lg
+                                text-{{ get_color(article_cards_1_group_description_color, 'slate-500') }}
+                                ">
                                     {{ article_cards_1_description }}
-                                </p>
+                                </div>
                             </article>
 
                             {% endfor %}
