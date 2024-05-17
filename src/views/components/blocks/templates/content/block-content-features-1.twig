@@ -5,8 +5,8 @@
 {% set content_features_1_title_color = fields.content_features_1_title_color %}
 {% set content_features_1_features = fields.content_features_1_features %}
 
-              {% set feature_title_color = fields.feature_title_color %}
-                {% set feature_description_color = fields.feature_description_color %}
+{% set feature_title_color = fields.feature_title_color %}
+{% set feature_description_color = fields.feature_description_color %}
 
 <section class="block-content-features-1
     bg-{{ get_color(content_features_1_background_color, 'white') }}
@@ -63,7 +63,7 @@
 
                     {% if feature_type_icon == 'image' %}
                     <div class="icon image">
-                        <img class="w-auto h-s_150" src="{{ feature_image_icon }}" alt="">
+                        <img class="w-auto h-s_150 onLazyLoad"  data-src="{{ _get_img(feature_image_icon, 'src') }}"  alt="{{ _get_img(feature_image_icon, 'alt') }}">
                     </div>
                     {% endif %}
 
@@ -75,16 +75,12 @@
 
 
                     {% if feature_title != '' %}
-                    <h3 class="mb-2 h4
-                        text-{{ get_color(feature_title_color, 'slate-800') }}
-                    ">
+                    <h3 class="mb-2 h4 text-{{ get_color(feature_title_color, 'slate-800') }} ">
                        {{ feature_title }}
                     </h3>
                     {% endif %}
                     {% if feature_description != '' %}
-                    <div class="text-lg
-                        text-{{ get_color(feature_description_color, 'slate-500') }}
-                    ">
+                    <div class="text-lg text-{{ get_color(feature_description_color, 'slate-500') }} ">
                         {{ feature_description }}
                     </div>
                     {% endif %}

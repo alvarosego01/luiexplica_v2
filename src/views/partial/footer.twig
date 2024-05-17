@@ -17,7 +17,7 @@
                         class="inline-flex transition duration-150 ease-in-out"
                         href="{{ home_url }}"
                         aria-label="Cruip">
-                        <img class="h-s_125" src="{{ logo }}" alt="">
+                        <img class="h-s_125 onLazyLoad" data-src="{{ logo }}" alt="Footer logo">
                     </a>
                 </div>
                 {#
@@ -65,7 +65,7 @@
         <div
             class="py-6 border-t md:flex md:items-center md:justify-between md:py-8 border-slate-200">
             <!-- Social links -->
-            <ul class="flex mb-4 space-x-2 md:space-x-5 md:order-1 md:ml-4 md:mb-0">
+            <ul class="flex pl-0 mb-4 space-x-2 list-none md:space-x-5 md:order-1 md:ml-4 md:mb-0">
 
             {% for item in menu_socials %}
 

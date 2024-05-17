@@ -668,6 +668,12 @@
         "folder": "content",
         "keywords": "content, features, 1",
         "fields": [
+             {
+                "key": "media_text_cta_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "default"
+            },
             {
                 "key": "media_text_cta_1_title",
                 "label": "Title",
