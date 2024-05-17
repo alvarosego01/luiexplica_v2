@@ -39,3 +39,10 @@
 }
 
 
+
+body ul,
+body ol {
+        list-style-type: disc;
+        list-style-position: outside;
+        padding-left: 25px;
+}

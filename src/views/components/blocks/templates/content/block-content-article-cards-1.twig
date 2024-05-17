@@ -5,28 +5,27 @@
 {% set article_cards_1_background_type = fields.article_cards_1_background_type %}
 
 {% set article_cards_1_title = fields.article_cards_1_title %}
+{% set article_cards_1_title_color = fields.article_cards_1_title_color %}
 {% set article_cards_1_sections = fields.article_cards_1_sections %}
+{% set article_cards_1_group_title_color = fields.article_cards_1_group_title_color %}
+{% set article_cards_1_group_description_color = fields.article_cards_1_group_description_color %}
 
-    <section class="relative">
+    <section class="relative block-content-article-cards-1">
 
                 {% set bg = (article_cards_1_background_color != '')? article_cards_1_background_color : 'slate-900' %}
 
-                <div class="absolute inset-0 bg-{{ bg }}
-                 pointer-events-none -z-10
+                <div class="absolute inset-0 bg-{{ bg }} pointer-events-none -z-10
                       {% if article_cards_1_background_type == 'inclined' %}
                       [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)] h-96 md:h-auto md:mb-64
-                    {% endif %}
-                    " aria-hidden="true"></div>
+                    {% endif %} " aria-hidden="true"></div>
 
 
                 <div class="relative max-w-6xl px-4 mx-auto sm:px-6">
                     <div class="py-12 md:py-20">
 
                         {% if article_cards_1_title != '' %}
-                        <div
-                                data-aos="fade-up"
-                        class="max-w-3xl pb-12 mx-auto text-center md:pb-20">
-                            <h2 class="h2 text-slate-100">
+                        <div data-aos="fade-up" class="max-w-3xl pb-12 mx-auto text-center md:pb-20">
+                            <h2 class="h2 text-{{ get_color(article_cards_1_title_color, 'slate-100') }} ">
                             {{ article_cards_1_title }}
                             </h2>
                         </div>
@@ -45,32 +44,29 @@
 
                             {% set index = index + 1 %}
 
-                            <article data-aos="fade-up"
-                                data-aos-delay={{ index * 100 }}
-                            >
+                            <article data-aos="fade-up" data-aos-delay={{ index * 100 }} >
                                 <a class="relative block mt-8 mb-4 group" {% if article_cards_1_url != '' %} href="{{ article_cards_1_url }}" {% endif %}
                                 >
                                     <div class="absolute inset-0 transition duration-300 ease-out translate-x-4 -translate-y-4 border-2 pointer-events-none border-slate-500 opacity-20 group-hover:translate-x-0 group-hover:translate-y-0 -z-10" aria-hidden="true"></div>
                                     <div class="overflow-hidden">
-                                        <img class="object-cover w-full transition duration-700 ease-out aspect-square group-hover:scale-105" src="{{ article_cards_1_image }}" width="342" height="342" alt="News 01" />
+                                        <img class="object-cover w-full transition duration-700 ease-out aspect-square group-hover:scale-105 onLazyLoad" width="342" height="342" data-src="{{ _get_img(article_cards_1_image, 'src') }}" alt="{{ _get_img(article_cards_1_image, 'alt') }}" />
                                     </div>
                                     <div class="absolute flex items-center self-center justify-center p-2 text-white rounded-full min-w-10 min-h-10 h-fit bg-gradient-to-b from-blue-500 to-blue-600 -top-8 left-8">
-                                        {# <svg class="w-16 h-16 fill-current" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                                            <path class="text-white" d="m30.152 39.848.672-.408C32.24 33.632 33.92 32 35.96 26.768a10.714 10.714 0 0 0-.432-2.28c-.288-.096-.888-.336-1.44-.336-1.776.48-3.48 1.632-5.208 2.088-1.272.336-.576 2.352.36 3.312.672-.384 1.872-1.008 2.28-.96-1.248 2.112-3 6.12-3 7.704 0 .528-.48.816-.48 1.104 0 .288.12.6.144.936.384-.24.48-.12.48.264.264.192.672.504 1.032.816.144-.744.384-1.56.888-1.464l-.6 1.704c.072.072.12.144.168.192Z" />
-                                        </svg> #}
                                         <span class="block m-auto leading-normal w-fit h-fit">
                                         {{ article_cards_1_tag }}
                                         </span>
                                     </div>
                                 </a>
                                 <h3 class="mb-2 h4 ">
-                                    <a class="text-slate-800 hover:underline hover:decoration-blue-100" {% if article_cards_1_url != '' %} href="{{ article_cards_1_url }}" {% endif %}>
+                                    <a class=" hover:underline hover:decoration-blue-100 text-{{ get_color(article_cards_1_group_title_color, 'blue-800') }}"
+                                    {% if article_cards_1_url != '' %} href="{{ article_cards_1_url }}" {% endif %}>
                                     {{ article_cards_1_title }}
                                     </a>
                                 </h3>
-                                <p class="text-lg text-slate-500">
+                                <div class="text-lg
+                                text-{{ get_color(article_cards_1_group_description_color, 'slate-500') }} ">
                                     {{ article_cards_1_description }}
-                                </p>
+                                </div>
                             </article>
 
                             {% endfor %}

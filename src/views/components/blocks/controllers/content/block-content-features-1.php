@@ -22,12 +22,15 @@ function _aux_get_fontawesome_class($icon_name) {
 
 }
 
+try {
 foreach ($fields['content_features_1_features'] as &$field) {
     if ($field['feature_type_icon'] === 'icon' && $field['feature_icon']['provider'] === 'fontawesome') {
         $field['feature_icon']['icon'] = _aux_get_fontawesome_class($field['feature_icon']['icon']);
     }
 }
 unset($field);
+} catch (\Throwable $th) {
+}
 
 $context = Timber::context();
 

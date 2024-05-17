@@ -3,18 +3,18 @@
 {% set pricing_1_background_color = fields.pricing_1_background_color %}
 {% set pricing_1_background_type = fields.pricing_1_background_type %}
 {% set pricing_1_title = fields.pricing_1_title %}
+{% set pricing_1_title_color = fields.pricing_1_title_color %}
 {% set pricing_1_enable_selector = fields.pricing_1_enable_selector %}
 {% set pricing_1_left_selector = fields.pricing_1_left_selector %}
 {% set pricing_1_right_selector = fields.pricing_1_right_selector %}
 {% set pricing_1_price_cards = fields.pricing_1_price_cards %}
 
 
-
 <section
-	class="relative">
+	class="relative block-content-pricing-1">
 
-	<div class="absolute inset-0 pointer-events-none bg-{{ pricing_1_background_color }} -z-10 h-1/3 lg:h-2/3
-
+	<div class="absolute inset-0 pointer-events-none -z-10 h-1/3 lg:h-2/3
+        bg-{{ get_color(pricing_1_background_color, 'white') }}
         {% if pricing_1_background_type == 'inclined' %}
             [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
         {% endif %}
@@ -26,7 +26,9 @@
 
             {% if pricing_1_title != '' %}
 			<div data-aos="fade-up" class="max-w-3xl pb-12 mx-auto text-center">
-				<h2 class="h2 text-slate-100">
+				<h2 class="h2
+                    text-{{ get_color(pricing_1_title_color, 'slate-100') }}
+                ">
                     {{ pricing_1_title }}
                 </h2>
 			</div>
@@ -70,7 +72,8 @@
                             {% set pricing_1_card_title = item.pricing_1_card_title %}
                             {% set pricing_1_price_left = item.pricing_1_price_left %}
                             {% set pricing_1_price_right = item.pricing_1_price_right %}
-                            {% set pricing_1_card_subtitle = item.pricing_1_card_subtitle %}
+                            {% set pricing_1_card_subtitle_left = item.pricing_1_card_subtitle_left %}
+                            {% set pricing_1_card_subtitle_right = item.pricing_1_card_subtitle_right %}
                             {% set pricing_1_card_description = item.pricing_1_card_description %}
                             {% set pricing_1_card_button_label = item.pricing_1_card_button_label %}
                             {% set pricing_1_card_button_url = item.pricing_1_card_button_url %}
@@ -92,7 +95,8 @@
                         lg:col-start-5
                     {% endif %}
 
-                    " data-aos="fade-up"  data-aos-delay={{ index * 100 }}>
+                    " data-aos="fade-up"  data-aos-delay={{ index * 100 }}
+                    >
 
                         {% if pricing_1_card_tag != '' %}
                         <div class="absolute top-0 right-0 mr-6 -mt-4">
@@ -103,20 +107,19 @@
                         {% endif %}
 
 						<div class="pb-4 mb-4 border-b border-slate-200">
-							<div class="mb-3 text-lg font-semibold text-slate-800">
+							<div class="mb-5 text-lg font-bold leading-tight text-slate-800">
                                 {{ pricing_1_card_title }}
                             </div>
-							<div class="inline-flex items-baseline mb-3">
+							<div class="inline-flex items-baseline mb-2">
 								<span class="font-medium h3 text-slate-500">$</span>
 								<span x-text="active ? {{ pricing_1_price_right }} : {{ pricing_1_price_left }}" class="leading-7 h2 text-slate-800"></span>
 								<span class="font-medium text-slate-400">/USD</span>
 							</div>
-							<div class="text-slate-500">
-                                {{ pricing_1_card_subtitle }}
-                            </div>
+							<div class="text-slate-500"
+                            x-text="active ? '{{ pricing_1_card_subtitle_right }}' : '{{ pricing_1_card_subtitle_left }}'"></div>
 						</div>
 						<div class="mb-3 font-medium">
-                       y     {{ pricing_1_card_description }}
+                           {{ pricing_1_card_description }}
                         </div>
 
 						<div class="p-3 rounded bg-slate-50">

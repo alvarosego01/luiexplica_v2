@@ -1,9 +1,8 @@
 <?php
 
-use App\Classes\ACF_declarations;
-use App\Classes\BlocksMain;
 use App\Classes\CarbonFields;
-use App\Classes\CustomizeControls;
+use App\Classes\Custom_PostTypes;
+use App\Classes\Forms_Handler;
 use App\Classes\generalFunctions;
 use App\Classes\Menus_Handler;
 use Timber\Site;
@@ -18,7 +17,6 @@ class StarterSite extends Site
     public function __construct()
     {
 
-
         add_action('after_setup_theme', array($this, 'theme_supports'));
         add_action('init', array($this, 'register_post_types'));
         add_action('init', array($this, 'register_taxonomies'));
@@ -28,27 +26,28 @@ class StarterSite extends Site
         add_filter('timber/twig', array($this, 'add_to_twig'));
         add_filter('timber/twig/environment/options', [$this, 'update_twig_environment_options']);
 
-        // Blocks gutenberg register
-        $blocks = new BlocksMain();
-        // Custom configs register
-        // $customize = new CustomizeControls();
+
+        $this->register_custom_postTypes();
 
         $this->register_meta_fields();
 
         $this->register_scripts_styles();
 
+
         parent::__construct();
     }
 
-    public function register_meta_fields()
+    private function register_meta_fields()
     {
-        // (new ACF_declarations())->set_properties_nav_menu();
-        // (new ACF_declarations())->register_custom_blocks();
         (new CarbonFields())->__init();
     }
 
+    private function register_custom_postTypes(){
+        (new Custom_PostTypes())->__init();
+    }
 
-    public function register_scripts_styles()
+
+    private function register_scripts_styles()
     {
 
         add_action('wp_enqueue_scripts', function () {
@@ -69,14 +68,16 @@ class StarterSite extends Site
 
             wp_enqueue_script('aos_js', get_stylesheet_directory_uri() . '/resources/js/vendors/aos.js', ['jquery'], rand(111, 9999), 'all');
 
+            // wp_enqueue_script('lozad', get_stylesheet_directory_uri() . '/assets/js/blazy.min.js', ['jquery'], 1, 'all');
+
             wp_enqueue_script('mainjs', get_stylesheet_directory_uri() . '/assets/js/main.js', ['jquery'], rand(111, 9999), 'all');
         });
 
         add_action('after_setup_theme', function () {
 
             add_theme_support('editor-styles');
-
             add_editor_style(get_stylesheet_directory_uri() . '/assets/css/tailwind.css');
+
         });
     }
 
@@ -111,37 +112,14 @@ class StarterSite extends Site
 
         $context['theme_settings'] = (new CarbonFields())->load_theme_settings('theme-settings');
 
-        // Get menu
         $context['header_menu_primary'] = (new Menus_Handler())->get_menu_items('navbar_primary');
         $context['header_menu_right'] = (new Menus_Handler())->get_menu_items('navbar_primary_right');
         $context['footer_menu'] = (new Menus_Handler())->get_menu_items('footer');
         $context['menu_socials'] = (new Menus_Handler())->get_menu_items('socials');
 
-        $context['all_cf7'] = $this->get_all_cf7();
-
+        $context['form_by_page'] = (new Forms_Handler())->get_form_by_pageId( get_the_id() );
 
         return $context;
-    }
-
-
-    public function get_all_cf7()
-    {
-
-        $args = array('post_type' => 'wpcf7_contact_form', 'posts_per_page' => -1);
-        $rs = array();
-        if ($data = get_posts($args)) {
-            foreach ($data as $key) {
-                $rs[] = array(
-                    'id' => $key->ID,
-                    'title' => $key->post_title
-                );
-            }
-        } else {
-            $rs['0'] = esc_html__('No Contact Form found', 'text-domanin');
-        }
-
-        return $rs;
-
     }
 
     public function theme_supports()
@@ -318,6 +296,9 @@ class StarterSite extends Site
         // $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 
         $twig->addFilter(new Twig\TwigFilter('myfoo', [$this, 'myfoo']));
+
+        $twig->addFunction(new Twig\TwigFunction('get_color', [new generalFunctions(), 'get_color']));
+        $twig->addFunction(new Twig\TwigFunction('_get_img', [new generalFunctions(), '_get_img']));
 
         return $twig;
     }

@@ -1,10 +1,9 @@
-<?php /* Block Name: Content Article cards 1 */ ?>
+<?php /* Block Name: Content parag 1 */ ?>
 
 <?php
 
 $block_slug = $context['slug'];
 $fields = $context['fields'];
-
 
 $context = Timber::context();
 

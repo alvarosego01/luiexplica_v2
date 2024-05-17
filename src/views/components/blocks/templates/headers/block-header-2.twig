@@ -1,6 +1,5 @@
 
 
-
     {% set header_2_background_color = fields.header_2_background_color %}
     {% set header_2_background_type = fields.header_2_background_type %}
     {% set header_2_title = fields.header_2_title %}
@@ -9,7 +8,6 @@
     {% set header_2_type_media = fields.header_2_type_media %}
     {% set header_2_image_portrait = fields.header_2_image_portrait %}
     {% set header_2_video = fields.header_2_video %}
-
 
      <section class="relative">
 
@@ -38,11 +36,7 @@
                         <div class="max-w-3xl mx-auto" x-data="{ modalExpanded: false }" data-aos="fade-up" data-aos-delay="100">
                             <div class="relative flex items-center justify-center">
 
-                                {# <img class="mx-auto" src="{{ header_2_image_portrait }}" width="768" height="432" alt="Wof hero" /> #}
-                                  <img
-                                class="mx-auto md:h-auto md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none "
-                                src="{{ header_2_image_portrait}}"
-                                alt="Hero" />
+                                  <img class="mx-auto md:h-auto md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none onLazyLoad " data-src="{{ _get_img(header_2_image_portrait, 'src') }}" alt="{{ _get_img(header_2_image_portrait, 'alt') }}" />
 
                                 {% if header_2_type_media == 1 %}
                                 <button class="absolute group" @click.prevent="modalExpanded = true" aria-controls="modal">

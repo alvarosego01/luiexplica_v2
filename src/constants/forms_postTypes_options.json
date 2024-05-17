@@ -1,0 +1,59 @@
+
+[
+
+    {
+        "post_type": "forms_post_type",
+        "name": "Form settings",
+        "fields": [
+            {
+                "key": "form_type",
+                "label": "Define form type",
+                "type": "select",
+                "options": [
+                    {
+                        "label": "Custom form 7",
+                        "value": "custom_form_7"
+                    },
+                    {
+                        "label": "Embedded form",
+                        "value": "embedded_form"
+                    }
+                ],
+                "default": "custom_form_7"
+            },
+            {
+                "key": "embedded_form",
+                "label": "Embedded form code",
+                "type": "rich_text",
+                "placeholder": "<div>form-12345</div>",
+                "condition": {
+                    "key": "form_type",
+                    "value": "embedded_form"
+                },
+                "default": ""
+            },
+            {
+                "type": "special_post_type",
+                "fields": [
+                    {
+                        "post_type": "forms_post_type",
+                        "key": "form_cf7",
+                        "label": "Select form cf7",
+                        "type": "select_form_cf7",
+                        "condition": {
+                            "key": "form_type",
+                            "value": "custom_form_7"
+                        }
+                    },
+                    {
+                        "post_type": "forms_post_type",
+                        "key": "form_behavior_cf7",
+                        "label": "Select behavior form cf7",
+                        "type": "select_form_behavior_cf7"
+                    }
+                ]
+            }
+
+        ]
+    }
+]

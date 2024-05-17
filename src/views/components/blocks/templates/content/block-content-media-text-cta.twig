@@ -1,33 +1,37 @@
 
 
 
+{% set media_text_cta_1_background_color = fields.media_text_cta_1_background_color %}
 {% set media_text_cta_1_title = fields.media_text_cta_1_title %}
+{% set media_text_cta_1_title_color = fields.media_text_cta_1_title_color %}
 {% set media_text_cta_1_sections = fields.media_text_cta_1_sections %}
 {% set media_text_cta_1_subtitle = fields.media_text_cta_1_subtitle %}
+{% set media_text_cta_1_subtitle_color = fields.media_text_cta_1_subtitle_color %}
+{% set media_text_cta_1_group_title_color = fields.media_text_cta_1_group_title_color %}
+{% set media_text_cta_1_group_description_color = fields.media_text_cta_1_group_description_color %}
 
 
-<section>
+<section class="block-content-media-text-cta w-full bg-{{ get_color(media_text_cta_1_background_color, 'white') }}">
 
 	<div class="relative max-w-6xl px-4 mx-auto sm:px-6">
-		<div
-			class="py-12 md:py-18">
 
-			{# <div class="hidden md:block absolute top-0 left-1/2 -ml-px -mt-4 w-0.5 h-12 bg-slate-200" aria-hidden="true"></div> #}
+		<div class="py-12 md:py-20">
 
-            <div class="space-y-10">
+            <div class="space-y-10" data-aos="fade-in"
+            >
               {% if media_text_cta_1_title != '' %}
-                    <h2 class="leading-normal text-center h2 text-slate-800">
+                    <h2 class="leading-normal text-center h2 text-{{ get_color(media_text_cta_1_title_color, 'slate-800') }} ">
                         {{ media_text_cta_1_title }}
                     </h2>
                     {% endif %}
                     {% if media_text_cta_1_subtitle != '' %}
-                    <div class="text-xl leading-normal text-center text-slate-500">{{ media_text_cta_1_subtitle }}</div>
+                    <div class="text-xl leading-normal text-center text-{{ get_color(media_text_cta_1_subtitle_color, 'slate-500') }} ">
+                        {{ media_text_cta_1_subtitle }}
+                    </div>
                     {% endif %}
 
             </div>
-			<div
-				class="max-w-xl mx-auto mt-20 space-y-20 md:max-w-none">
-
+			<div class="max-w-xl mx-auto mt-20 space-y-20 md:max-w-none">
 
                 {% if media_text_cta_1_sections|length > 0 %}
 
@@ -45,31 +49,30 @@
 
                     {% set index = index + 1 %}
 
-				<div
-                   x-data="{ modalExpanded: false }"
-					class="
+				<div x-data="{ modalExpanded: false }" class="
                         {% if (index % 2) == 0  %}
-
                             flex flex-col-reverse space-y-4 space-y-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0
-
                         {% else %}
                             flex flex-col-reverse space-y-4 space-y-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0
                         {% endif %}
                     ">
 
-					<div class="md:min-w-[30rem]" data-aos="fade-left">
-						<h2 class="mb-4 h3 md:text-4xl text-slate-800 ">
+					<div class="md:w-6/12" data-aos="fade-left"
+                    data-aos-delay={{ index * 100 }}
+                    >
+						<h2 class="mb-4 h3 md:text-4xl
+                            text-{{ get_color(media_text_cta_1_group_title_color, 'slate-800')}}
+                         ">
                             {{ media_text_cta_1_title }}
 						</h2>
-						<p class="pl-4 mb-8 text-2xl border-l-2 text-slate-500 border-slate-800">
+						<div class="pl-4 mb-8 text-xl border-l-2 border-slate-800
+                            text-{{ get_color(media_text_cta_1_group_description_color, 'slate-500')}}
+                        ">
                             {{ media_text_cta_1_description }}
-                        </p>
+                        </div>
 
-
-
-                            {% if media_text_cta_1_enable_button == 1 %}
-                    <div
-                        class="flex justify-start w-full space-y-4 ">
+                        {% if media_text_cta_1_enable_button == 1 %}
+                            <div class="flex justify-start w-full space-y-4 ">
                                 {% include "components/common/Button.twig" with {
                                     'text': media_text_cta_1_button_label,
                                     'path': media_text_cta_1_button_url,
@@ -81,16 +84,16 @@
 
 					</div>
 
-					<div class="flex items-center justify-center" data-aos="fade-right">
+					<div class="flex items-center justify-center md:w-6/12" data-aos="fade-right"
+                    data-aos-delay={{ index * 150 }}
+                    >
 						<div class="relative">
 							<div class="absolute inset-0 -translate-x-4 -translate-y-4 border-2 pointer-events-none border-slate-200 -z-10" aria-hidden="true"></div>
-							<img class="object-cover w-auto mx-auto md:h-s_250 pcTab:h-s_350 lg:h-s_500 " src="{{ media_text_cta_1_image_portrait }}" />
+							<img class="object-cover object-center w-auto mx-auto md:h-s_250 pcTab:h-s_350 lg:h-s_500 onLazyLoad"  data-src="{{ _get_img(media_text_cta_1_image_portrait, 'src') }}"  alt="{{ _get_img(media_text_cta_1_image_portrait, 'alt') }}" />
 						</div>
                            {% if media_text_cta_1_type_media == 'video' %}
 
-						<button
-                                       @click.prevent="modalExpanded = true"
-                        class="absolute group">
+						<button @click.prevent="modalExpanded = true" class="absolute group">
 							<svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewbox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
 								<circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44"/>
 								<path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"/>

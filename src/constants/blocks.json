@@ -8,6 +8,12 @@
         "folder": "headers",
         "keywords": "header, title",
         "fields": [
+             {
+                "key": "header_1_enable_form",
+                "label": "Enable form",
+                "type": "checkbox",
+                "default": 0
+            },
             {
                 "key": "header_1_background_color",
                 "label": "Background color",
@@ -37,10 +43,22 @@
                 "default": "lorem ipsum dolor sit amet"
             },
             {
+                "key": "header_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
+            },
+            {
                 "key": "header_1_subtitle",
                 "label": "Subtitle",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "header_1_subtitle_color",
+                "label": "Subtitle color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "header_1_enable_media",
@@ -214,10 +232,22 @@
                 "default": "lorem ipsum dolor sit amet"
             },
             {
+                "key": "cta_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
+            },
+            {
                 "key": "cta_1_subtitle",
                 "label": "Subtitle",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "cta_1_subtitle_color",
+                "label": "Subtitle color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "cta_1_enable_buttons",
@@ -317,10 +347,22 @@
         "keywords": "content, features, 1",
         "fields": [
             {
+                "key": "content_features_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "slate-100"
+            },
+            {
                 "key": "content_features_1_title",
                 "label": "Title",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "content_features_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "content_features_1_features",
@@ -382,7 +424,19 @@
                         ]
                     }
                 ]
-            }
+            },
+                 {
+                                "key": "feature_title_color",
+                                "label": "Title group color",
+                                "type": "select_color",
+                                "default": "default"
+                            },
+                            {
+                                "key": "feature_description_color",
+                                "label": "Description group color",
+                                "type": "select_color",
+                                "default": "default"
+                            }
         ]
     },
     {
@@ -405,6 +459,12 @@
                 "label": "Title",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "faqs_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "faqs_1_items",
@@ -430,6 +490,18 @@
                         ]
                     }
                 ]
+            },
+                    {
+                "key": "faqs_1_layout_title_color",
+                "label": "Title group color",
+                "type": "select_color",
+                "default": "default"
+            },
+            {
+                "key": "faqs_1_layout_description_color",
+                "label": "Description group color",
+                "type": "select_color",
+                "default": "default"
             }
         ]
     },
@@ -469,6 +541,12 @@
                 "label": "Title",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "pricing_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "pricing_1_enable_selector",
@@ -521,11 +599,7 @@
                                 "key": "pricing_1_price_left",
                                 "label": "Price left",
                                 "type": "number",
-                                "default": 0,
-                                "condition": {
-                                    "key": "pricing_1_enable_selector",
-                                    "value": 1
-                                }
+                                "default": 0
                             },
                             {
                                 "key": "pricing_1_price_right",
@@ -534,9 +608,15 @@
                                 "default": 0
                             },
                             {
-                                "key": "pricing_1_card_subtitle",
-                                "label": "Subtitle",
-                                "type": "rich_text",
+                                "key": "pricing_1_card_subtitle_left",
+                                "label": "Subtitle left",
+                                "type": "text",
+                                "default": "lorem ipsum dolor sit amet"
+                            },
+                            {
+                                "key": "pricing_1_card_subtitle_right",
+                                "label": "Subtitle right",
+                                "type": "text",
                                 "default": "lorem ipsum dolor sit amet"
                             },
                             {
@@ -588,6 +668,12 @@
         "folder": "content",
         "keywords": "content, features, 1",
         "fields": [
+             {
+                "key": "media_text_cta_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "default"
+            },
             {
                 "key": "media_text_cta_1_title",
                 "label": "Title",
@@ -595,10 +681,22 @@
                 "default": "lorem ipsum dolor sit amet"
             },
             {
+                "key": "media_text_cta_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
+            },
+            {
                 "key": "media_text_cta_1_subtitle",
                 "label": "Subtitle",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "media_text_cta_1_subtitle_color",
+                "label": "Subtitle color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "media_text_cta_1_sections",
@@ -702,7 +800,19 @@
                         ]
                     }
                 ]
-            }
+            },
+               {
+                                "key": "media_text_cta_1_group_title_color",
+                                "label": "Title group color",
+                                "type": "select_color",
+                                "default": "default"
+                            },
+                            {
+                                "key": "media_text_cta_1_group_description_color",
+                                "label": "Description group color",
+                                "type": "select_color",
+                                "default": "default"
+                            }
         ]
     },
     {
@@ -741,6 +851,12 @@
                 "label": "Title",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "article_cards_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "article_cards_1_sections",
@@ -785,7 +901,19 @@
                         ]
                     }
                 ]
-            }
+            },
+               {
+                                "key": "article_cards_1_group_title_color",
+                                "label": "Title grupup color",
+                                "type": "select_color",
+                                "default": "default"
+                            },
+                            {
+                                "key": "article_cards_1_group_description_color",
+                                "label": "Description grupup color",
+                                "type": "select_color",
+                                "default": "default"
+                            }
         ]
     },
     {
@@ -824,6 +952,12 @@
                 "label": "Title",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "count_down_1_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "count_down_1_date",
@@ -981,10 +1115,22 @@
         "keywords": "content, testimonials, 1",
         "fields": [
             {
+                "key": "testimonials_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "default"
+            },
+            {
                 "key": "testimonials_1_section_title",
                 "label": "Title",
                 "type": "rich_text",
                 "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "testimonials_1_section_title_color",
+                "label": "Title color",
+                "type": "select_color",
+                "default": "default"
             },
             {
                 "key": "testimonials_1_sections",
@@ -1060,6 +1206,51 @@
                     }
                 ],
                 "default": "primary"
+            }
+        ]
+    },
+    {
+        "name": "block-content-parag-1",
+        "title": "Content parag 1",
+        "description": "Content parag 1 block",
+        "category": "Lui_explica",
+        "icon": "admin-comments",
+        "folder": "content",
+        "keywords": "content, parag, 1",
+        "fields": [
+            {
+                "key": "parag_1_enable_media",
+                "label": "Enable media",
+                "type": "checkbox",
+                "default": 1
+            },
+            {
+                "key": "parag_1_image",
+                "label": "Image",
+                "type": "image",
+                "default": "",
+                "condition": {
+                    "key": "parag_1_enable_media",
+                    "value": 1
+                }
+            },
+            {
+                "key": "parag_1_background_color",
+                "label": "Background color",
+                "type": "select_color",
+                "default": "default"
+            },
+            {
+                "key": "parag_1_description",
+                "label": "Description",
+                "type": "rich_text",
+                "default": "lorem ipsum dolor sit amet"
+            },
+            {
+                "key": "parag_1_description_color",
+                "label": "Description color",
+                "type": "select_color",
+                "default": "default"
             }
         ]
     }
