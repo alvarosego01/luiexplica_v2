@@ -285,7 +285,7 @@ class CarbonFields
         $carbon_field = Field::make($finalType, $field_name, $field_label);
 
         if ($field_type === 'image' || $field_type === 'file') {
-            $carbon_field->set_value_type('url');
+            $carbon_field->set_value_type('id');
         }
 
         if ($field_type === 'url') {

@@ -35,20 +35,13 @@
         aria-hidden="true"></div>
 
     <div class="relative max-w-6xl px-4 mx-auto sm:px-6">
-        <div class="pt-32 pb-20 md:py-40
-            {% if header_1_background_type == 'flat' %}
-                md:!py-32
-            {% endif %}
-
-        ">
+        <div class="pt-32 pb-20 md:py-40 {% if header_1_background_type == 'flat' %} md:!py-32 {% endif %} ">
             <div
                 class="max-w-xl mx-auto space-y-16 md:justify-center md:max-w-none md:grid md:grid-cols-12 md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0">
 
                 <div class="text-center relative md:text-left md:col-span-7 pcTab:min-w-[30rem] space-y-8 aos-init aos-animate" >
                     {% if header_1_title %}
-                    <h1 class="leading-normal h2
-                        text-{{ get_color(header_1_title_color, 'generalWhite') }}
-                    "
+                    <h1 class="leading-normal h2 text-{{ get_color(header_1_title_color, 'generalWhite') }}"
                         data-aos="fade-right"
                         data-aos-delay="100"
                     >
@@ -64,10 +57,7 @@
                     </div>
                     {% endif %}
                     {% if header_1_enable_buttons %}
-                    <div
-                        class="max-w-xs mx-auto space-y-4 sm:max-w-none sm:flex sm:justify-center md:justify-start sm:space-y-0 sm:space-x-4"
-                            data-aos="fade-right"
-                                      data-aos-delay="300"
+                    <div class="max-w-xs mx-auto space-y-4 sm:max-w-none sm:flex sm:justify-center md:justify-start sm:space-y-0 sm:space-x-4" data-aos="fade-right" data-aos-delay="300"
                         >
                          {% if header_button_1_label != '' %}
                         <div>
@@ -95,32 +85,22 @@
                 </div>
 
                 {% if header_1_enable_media %}
-                <div
-                    x-data="{ modalExpanded: false }"
-                    class="aos-init aos-animate md:col-span-5">
+                <div x-data="{ modalExpanded: false }" class="aos-init aos-animate md:col-span-5">
 
                      {% if header_1_enable_form != 1 %}
-                    <div class="flex items-center justify-center p-5"
-                    data-aos-delay="300"
-                    data-aos="fade-left"
+                    <div class="flex items-center justify-center p-5" data-aos-delay="300" data-aos="fade-left"
                     >
                         <div class="relative">
-                            <div
-                                class="absolute inset-0 mt-3 ml-3 translate-x-4 translate-y-4 border-2 pointer-events-none  -z-10
-                                border-{{ get_color(header_1_title_color, 'slate-700') }}  "
-                                "
-                                aria-hidden="true"></div>
-                            <img
-                                class="
+                            <div class="absolute inset-0 mt-3 ml-3 translate-x-4 translate-y-4 border-2 pointer-events-none  -z-10 border-{{ get_color(header_1_title_color, 'slate-700') }} " aria-hidden="true"></div>
+                            <img class=" onLazyLoad
                                     {% if header_1_enable_form != 1 %}
-                                        mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none
-                                        {% else %}
-                                        mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_275 pcTab:h-auto lg:max-w-none
-                                    {% endif %}
-                                "
-                                src="{{ header_1_image_portrait}}"
+                                         mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none
+                                        {% else %} mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_275 pcTab:h-auto lg:max-w-none
+                                    {% endif %}"
+                                data-src="{{ _get_img(header_1_image_portrait, 'src') }}"
                                 width="540"
                                 height="405"
+                                alt="{{ _get_img(header_1_image_portrait, 'alt') }}"
                                 alt="Hero" />
                         </div>
 

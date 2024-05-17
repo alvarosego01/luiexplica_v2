@@ -10,21 +10,14 @@
 {% set testimonials_1_button_url = fields.testimonials_1_button_url %}
 {% set testimonials_1_button_color = fields.testimonials_1_button_color %}
 
-
-            <section class="
-                bg-{{ get_color(testimonials_1_background_color, 'slate-50') }}
-             block-content-testimonials-1">
+            <section class="bg-{{ get_color(testimonials_1_background_color, 'slate-50') }} block-content-testimonials-1">
 
                 <div class="max-w-6xl px-4 mx-auto sm:px-6">
                     <div class="py-12 md:py-20">
 
                         {% if testimonials_1_section_title != '' %}
-                        <div
-                              data-aos="fade-up"
-                        class="max-w-3xl pb-12 mx-auto text-center md:pb-20">
-                            <h2 class="h2
-                                text-{{ get_color(testimonials_1_section_title_color, 'slate-800') }}
-                            ">
+                        <div data-aos="fade-up" class="max-w-3xl pb-12 mx-auto text-center md:pb-20">
+                            <h2 class="h2 text-{{ get_color(testimonials_1_section_title_color, 'slate-800') }} ">
                                 {{ testimonials_1_section_title }}
                             </h2>
                         </div>
@@ -44,15 +37,11 @@
 
                             {% set index = index + 1 %}
 
-                            <article class="flex flex-col h-full p-6 bg-white shadow-xl"
-                             data-aos-anchor="[data-aos-id-testimonials]"
-                            data-aos="fade-up"
-                            data-aos-delay={{ index * 100 }}
-                            >
+                            <article class="flex flex-col h-full p-6 bg-white shadow-xl" data-aos-anchor="[data-aos-id-testimonials]" data-aos="fade-up" data-aos-delay={{ index * 100 }} >
                                 <header>
                                     <div class="flex items-center mb-4">
                                         <div class="relative mr-3">
-                                            <img class="block object-cover object-center h-12 rounded-full max-w-12 min-h-12 max-h-12 min-w-12 shrink-0" src="{{ testimonials_1_image }}" />
+                                            <img class="block object-cover object-center h-12 rounded-full max-w-12 min-h-12 max-h-12 min-w-12 shrink-0 onLazyLoad" data-src="{{ _get_img(testimonials_1_image, 'src') }}" alt="{{ _get_img(testimonials_1_image, 'alt') }}" />
                                             <div class="absolute top-0 right-0 -mr-2" aria-hidden="true">
                                                 <svg class="fill-blue-600" width="20" height="16" viewBox="0 0 20 16">
                                                     <path d="M2.76 16c2.577 0 5.154-3.219 5.154-5.996 0-1.357-.613-2.272-1.748-2.272s-2.27.726-3.283 1.64C3.16 6.439 5.613 3.346 9.571.885L9.233 0C3.466 2.903 0 7.732 0 12.213 0 14.517.828 16 2.76 16Zm10.43 0c2.577 0 5.154-3.219 5.154-5.996 0-1.357-.614-2.272-1.749-2.272-1.135 0-2.27.726-3.282 1.64.276-2.934 2.73-6.027 6.687-8.488L19.663 0c-5.767 2.903-9.234 7.732-9.234 12.213 0 2.304.829 3.787 2.761 3.787Z" />
@@ -80,10 +69,9 @@
 
                                 {% if testimonials_1_is_trustpilot == 1 %}
 
-
                                 <footer class="flex flex-row space-x-2">
 
-                                <img class="w-auto h-5" src="{{ server_uri }}/assets/images/src/images/stars-5.png" alt="trustpilot stars">
+                                <img class="w-auto h-5 onLazyLoad" data-src="{{ server_uri }}/assets/images/src/images/stars-5.png" alt="trustpilot stars">
 
                                 <a class="text-xs text-gray-500 trans hover:text-emerald-500" href="{{ testimonials_1_url }}">
                                     Ver en Trustpilot
@@ -100,10 +88,7 @@
                              {% endif %}
 
                         {% if testimonials_1_button_label != '' %}
-                        <div class="text-center"
-                        data-aos="fade-up"
-                        data-aos-delay={{ testimonials_1_sections|length * 100 }}
-                        >
+                        <div class="text-center" data-aos="fade-up" data-aos-delay={{ testimonials_1_sections|length * 100 }} >
                               {% include "components/common/Button.twig" with {
                                 'text': testimonials_1_button_label,
                                 'path': testimonials_1_button_url,

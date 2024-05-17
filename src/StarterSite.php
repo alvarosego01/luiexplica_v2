@@ -17,7 +17,6 @@ class StarterSite extends Site
     public function __construct()
     {
 
-
         add_action('after_setup_theme', array($this, 'theme_supports'));
         add_action('init', array($this, 'register_post_types'));
         add_action('init', array($this, 'register_taxonomies'));
@@ -33,6 +32,7 @@ class StarterSite extends Site
         $this->register_meta_fields();
 
         $this->register_scripts_styles();
+
 
         parent::__construct();
     }
@@ -67,6 +67,8 @@ class StarterSite extends Site
             wp_enqueue_script('alpinejs', get_stylesheet_directory_uri() . '/resources/js/vendors/alpinejs.min.js', ['jquery'], rand(111, 9999), 'all');
 
             wp_enqueue_script('aos_js', get_stylesheet_directory_uri() . '/resources/js/vendors/aos.js', ['jquery'], rand(111, 9999), 'all');
+
+            // wp_enqueue_script('lozad', get_stylesheet_directory_uri() . '/assets/js/blazy.min.js', ['jquery'], 1, 'all');
 
             wp_enqueue_script('mainjs', get_stylesheet_directory_uri() . '/assets/js/main.js', ['jquery'], rand(111, 9999), 'all');
         });
@@ -296,6 +298,7 @@ class StarterSite extends Site
         $twig->addFilter(new Twig\TwigFilter('myfoo', [$this, 'myfoo']));
 
         $twig->addFunction(new Twig\TwigFunction('get_color', [new generalFunctions(), 'get_color']));
+        $twig->addFunction(new Twig\TwigFunction('_get_img', [new generalFunctions(), '_get_img']));
 
         return $twig;
     }
