@@ -81,21 +81,20 @@
                                    {% endif %}
                             </article>
 
-
                               {% endfor %}
 
                         </div>
                              {% endif %}
 
                         {% if testimonials_1_button_label != '' %}
-                        <div class="text-center" data-aos="fade-up" data-aos-delay={{ testimonials_1_sections|length * 100 }} >
-                              {% include "components/common/Button.twig" with {
-                                'text': testimonials_1_button_label,
-                                'path': testimonials_1_button_url,
-                                'type': testimonials_1_button_color
-                                }
-                            %}
-                        </div>
+                            <div class="text-center" data-aos="fade-up" data-aos-delay={{ testimonials_1_sections|length * 100 }} >
+                                {% include "components/common/Button.twig" with {
+                                    'text': testimonials_1_button_label,
+                                    'path': testimonials_1_button_url,
+                                    'type': testimonials_1_button_color
+                                    }
+                                %}
+                            </div>
                         {% endif %}
 
                     </div>

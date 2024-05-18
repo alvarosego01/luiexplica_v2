@@ -54,6 +54,8 @@ class StarterSite extends Site
 
             wp_enqueue_style('wp-block-library');
 
+                wp_enqueue_style('dashicons');
+
             wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
             wp_enqueue_style('box-icons', 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');

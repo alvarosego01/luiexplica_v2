@@ -103,8 +103,8 @@ class CarbonFields
     }
 
 
-    public function set_properties_nav_menu()
-    {
+    public function set_properties_nav_menu() {
+
         Container::make('nav_menu_item', 'Menus custom field settings')
             ->add_fields([
                 Field::make('checkbox', 'enable_is_button', 'Enable is button')->set_option_value('yes'),
@@ -112,8 +112,8 @@ class CarbonFields
                     'primary' => 'Primary',
                     'secondary' => 'Secondary',
                 ])
-                    ->set_default_value('primary')
-                    ->set_conditional_logic([
+                ->set_default_value('primary')
+                ->set_conditional_logic([
                         [
                             'field' => 'enable_is_button',
                             'value' => true,
@@ -123,6 +123,7 @@ class CarbonFields
                 Field::make('text', 'icon_type', 'Icon')
                     ->set_attribute('placeholder', "bx bxl-tiktok")
             ]);
+
     }
 
     public function register_blocks()

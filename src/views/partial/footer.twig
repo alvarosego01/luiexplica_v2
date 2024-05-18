@@ -1,92 +1,92 @@
+{% set logo = theme_settings['theme-settings'].global_footer_logo %}
+{% set copyrights = theme_settings['theme-settings'].global_copyrights %}
 
+<footer class="footer">
+	<div class="max-w-6xl px-4 mx-auto sm:px-6" data-aos="fade-up">
 
+		<div class="grid py-8 border-t gap-y-5 md:gap-y-0 sm:grid-cols-12 md:py-12 border-opacity-10 border-generalBlack">
 
- {% set logo = theme_settings['theme-settings'].global_footer_logo %}
- {% set copyrights = theme_settings['theme-settings'].global_copyrights %}
+			{# <div class="sm:col-span-6 md:col-span-2">
 
+				<div class="mb-2">
+					<a class="flex transition duration-150 ease-in-out md:items-center md:justify-center" href="{{ home_url }}" aria-label="Cruip">
+						<img class="h-s_125 onLazyLoad" data-src="{{ logo }}" alt="Footer logo">
+					</a>
+				</div>
 
-<footer class="">
-    <div class="max-w-6xl px-4 mx-auto sm:px-6" data-aos="fade-up">
-        <!-- Top area: Blocks -->
-        <div class="grid gap-8 py-8 border-t sm:grid-cols-12 md:py-12 border-opacity-10 border-generalBlack">
-            <!-- 1st block -->
-            <div class="sm:col-span-12 lg:col-span-3 lg:max-w-xs">
-                <div class="mb-2">
-                    <!-- Logo -->
-                    <a
-                        class="inline-flex transition duration-150 ease-in-out"
-                        href="{{ home_url }}"
-                        aria-label="Cruip">
-                        <img class="h-s_125 onLazyLoad" data-src="{{ logo }}" alt="Footer logo">
-                    </a>
-                </div>
-                {#
-                <div class="text-lg font-bold text-slate-800">
-                    #} {# The smarter way to start your next idea. #} {#
-                </div>
-                #}
-            </div>
-            {% for item in footer_menu %}
-            <div class="sm:col-span-6 md:col-span-3 ">
-                <h6 class="mb-2 text-sm font-bold text-slate-800">
-                    {{ item.title }}
-                </h6>
-                {% if item.children is not empty %}
-                <ul class="space-y-2 text-sm font-medium">
-                    {% for child in item.children %}
-                        {% if item.properties.enable_is_button == 1 %}
-                            {% include "components/common/Button.twig" with {
+			</div> #}
+			{% for item in footer_menu %}
+				<div class="col-span-12 sm:col-span-6 md:col-span-3 ">
+					<h6 class="mb-2 text-lg font-bold text-slate-800">
+						{{ item.title }}
+					</h6>
+					{% if item.children is not empty %}
+						<ul class="pl-1 space-y-2 text-sm font-medium list-none ">
+							{% for child in item.children %}
+								{% if child.properties.enable_is_button == 1 %}
+									{% include "components/common/Button.twig" with {
                                 'text': child.title,
                                 'type': child.properties.button_type,
                                 'path': child.url
                                 }
                             %}
-                        {% else %}
-                    <li >
-                        <a
-                            class="transition duration-150 ease-in-out text-slate-500 hover:text-blue-600"
-                            href="{{ child.url }}"
-                            >
-                            {{ child.title }}
-                            </a
-                        >
-                    </li>
-                {% endif %}
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
+							{% else %}
+									<li class="text-base">
+										{% if child.url != '' %}
+											<a class="flex flex-row space-x-2 transition duration-150 ease-in-out text-slate-500 hover:text-blue-600" href="{{ child.url }}">
+												{% if child.properties.icon_type != '' %}
+													<div class="relative flex text-primaryBlue items-center justify-center text-xl -top-[1.5px] icon">
+														{{ child.properties.icon_type }}
+													</div>
+												{% endif %}
+                                                <span class="flex self-center justify-self-center">
+												    {{ child.title }}
+                                                </span>
+											</a>
+										{% else %}
+											<div class="flex flex-row w-full space-x-2 text-slate-500 ">
+												{% if child.properties.icon_type != '' %}
+													<div class="relative flex text-primaryBlue items-center justify-center text-xl -top-[1.5px] icon">
+														{{ child.properties.icon_type }}
+													</div>
+												{% endif %}
+                                                <span class="flex self-center justify-self-center">
+												    {{ child.title }}
+                                                </span>
+											</div>
+										{% endif %}
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
 
-        <!-- Bottom area -->
+			<div class="py-4 border-t md:flex md:items-center md:justify-between border-slate-200">
+		{% if menu_socials|length > 0 %}
+				<ul class="flex pl-0 mb-4 space-x-2 list-none md:space-x-5 md:order-1 md:ml-4 md:mb-0">
 
-        {% if menu_socials|length > 0 %}
-        <div
-            class="py-6 border-t md:flex md:items-center md:justify-between md:py-8 border-slate-200">
-            <!-- Social links -->
-            <ul class="flex pl-0 mb-4 space-x-2 list-none md:space-x-5 md:order-1 md:ml-4 md:mb-0">
+					{% for item in menu_socials %}
 
-            {% for item in menu_socials %}
+						<li>
+							<a class="text-2xl text-blue-500 transition duration-150 ease-in-out hover:text-blue-600" href="{{ item.url }}">
+								{{ item.properties.icon_type }}
+							</a>
+						</li>
 
-                <li>
-                    <a
-                        class="text-2xl text-blue-500 transition duration-150 ease-in-out hover:text-blue-600"
-                        href="{{ item.url }}">
-                        {{ item.properties.icon_type }}
-                    </a>
-                </li>
+					{% endfor %}
+				</ul>
 
-            {% endfor %}
-            </ul>
-
-            <!-- Copyrights note -->
-            <div class="mr-4 text-sm text-slate-500">
-                {{ copyrights }}
-            </div>
-        </div>
-        {% endif %}
-    </div>
+		{% endif %}
+				<!-- Copyrights note -->
+				<div class="flex flex-col-reverse items-center mr-4 text-sm sm:flex-row text-slate-500">
+                		<img class="h-16 mr-2 onLazyLoad" data-src="{{ logo }}" alt="Footer logo">
+					{{ copyrights }}
+				</div>
+			</div>
+	</div>
 </footer>
 
 {{ function("wp_footer") }}

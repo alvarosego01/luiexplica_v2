@@ -25,14 +25,12 @@
  {% set header_button_2_color = fields.header_button_2_color %}
 
 
-<section class="relative">
-    <div
-        class="absolute inset-0 bg-{{ get_color(header_1_background_color, 'slate-900') }}  pointer-events-none -z-10
+<section class="relative block-header-1">
+
+    <div class="absolute inset-0 bg-{{ get_color(header_1_background_color, 'slate-900') }}  pointer-events-none -z-10
         {% if header_1_background_type == 'inclined' %}
             [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
-        {% endif %}
-        "
-        aria-hidden="true"></div>
+        {% endif %} " aria-hidden="true"></div>
 
     <div class="relative max-w-6xl px-4 mx-auto sm:px-6">
         <div class="pt-32 pb-20 md:py-40 {% if header_1_background_type == 'flat' %} md:!py-32 {% endif %} ">
@@ -43,16 +41,14 @@
                     {% if header_1_title %}
                     <h1 class="leading-normal h2 text-{{ get_color(header_1_title_color, 'generalWhite') }}"
                         data-aos="fade-right"
-                        data-aos-delay="100"
-                    >
+                        data-aos-delay="100" >
                         {{ header_1_title }}
                     </h1>
                     {% endif %}
                     {% if header_1_subtitle %}
                     <div class="text-xl leading-semi text-{{ get_color(header_1_subtitle_color, 'gray-300') }} "
                         data-aos="fade-right"
-                        data-aos-delay="200"
-                    >
+                        data-aos-delay="200" >
                         {{ header_1_subtitle }}
                     </div>
                     {% endif %}
@@ -113,14 +109,8 @@
                                 class="w-16 h-16 fill-current sm:w-20 sm:h-20 group"
                                 viewBox="0 0 88 88"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle
-                                    class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100"
-                                    cx="44"
-                                    cy="44"
-                                    r="44"></circle>
-                                <path
-                                    class="text-blue-600"
-                                    d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"></path>
+                                <circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44"></circle>
+                                <path class="text-blue-600"d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"></path>
                             </svg>
                         </button>
                         {% endif %}
@@ -128,10 +118,7 @@
                         {% endif %}
 
                     {% if header_1_enable_form == 1 %}
-                    <div
-                    class="mx-auto w-s_350 md:w-full"
-                    data-aos="fade-left" data-aos-delay="350"
-                    >
+                    <div class="mx-auto w-s_350 md:w-full" data-aos="fade-left" data-aos-delay="350" >
                         {% include "components/common/forms/form.twig" with {
                             'form': form_by_page,
                             }
