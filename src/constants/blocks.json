@@ -1024,6 +1024,12 @@
         "keywords": "content, header, 2",
         "fields": [
             {
+                "key": "header_2_enable_form",
+                "label": "Enable form",
+                "type": "checkbox",
+                "default": 0
+            },
+            {
                 "key": "header_2_background_color",
                 "label": "Background color",
                 "type": "select_color",
