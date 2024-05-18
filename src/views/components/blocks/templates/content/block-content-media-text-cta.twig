@@ -31,7 +31,7 @@
                     {% endif %}
 
             </div>
-			<div class="max-w-xl mx-auto mt-20 space-y-20 md:max-w-none">
+			<div class="max-w-xl mx-auto mt-20 space-y-16 md:max-w-none">
 
                 {% if media_text_cta_1_sections|length > 0 %}
 
@@ -88,8 +88,8 @@
                     data-aos-delay={{ index * 150 }}
                     >
 						<div class="relative">
-							<div class="absolute inset-0 -translate-x-4 -translate-y-4 border-2 pointer-events-none border-slate-200 -z-10" aria-hidden="true"></div>
-							<img class="object-cover object-center w-auto mx-auto md:h-s_300 pcTab:h-s_250 lg:h-s_450 onLazyLoad"  data-src="{{ _get_img(media_text_cta_1_image_portrait, 'src') }}"  alt="{{ _get_img(media_text_cta_1_image_portrait, 'alt') }}" />
+							<div class="absolute inset-0 -translate-x-4 -translate-y-4 border-2 pointer-events-none border-{{ get_color(media_text_cta_1_group_title_color, 'slate-200')}} z-1" aria-hidden="true"></div>
+							<img class="relative z-10 object-cover object-center w-auto mx-auto md:h-s_300 pcTab:h-s_250 lg:h-s_450 onLazyLoad"  data-src="{{ _get_img(media_text_cta_1_image_portrait, 'src') }}"  alt="{{ _get_img(media_text_cta_1_image_portrait, 'alt') }}" />
 						</div>
                            {% if media_text_cta_1_type_media == 'video' %}
 
