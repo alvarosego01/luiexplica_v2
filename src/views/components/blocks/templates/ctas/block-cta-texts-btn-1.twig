@@ -41,7 +41,7 @@
                     {% endif %}
                     {% if cta_1_enable_buttons == 1 %}
                      <div
-                        class="justify-center max-w-xs mx-auto sm:max-w-none sm:flex sm:space-y-0 sm:space-x-4">
+                        class="flex flex-col justify-center max-w-xs mx-auto md:flex-row gap-y-4 sm:max-w-none sm:flex md:space-y-0 md:space-x-4">
                          {% if cta_button_1_label != '' %}
                         <div>
                             {% include "components/common/Button.twig" with {
