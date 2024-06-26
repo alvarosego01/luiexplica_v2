@@ -1,4 +1,8 @@
 
+{% set component_block_id = fields.component_block_id %}
+{% set component_block_class = fields.component_block_class %}
+
+
 {% set cta_1_background_color = fields.cta_1_background_color %}
 {% set cta_1_background_type = fields.cta_1_background_type %}
 {% set cta_1_title = fields.cta_1_title %}
@@ -13,7 +17,7 @@
 {% set cta_button_2_url = fields.cta_button_2_url %}
 {% set cta_button_2_color = fields.cta_button_2_color %}
 
-<section class=" bg-{{ get_color(cta_1_background_color, 'white') }} block-cta-texts-btn-1
+<section {% if component_block_id != '' %} id="{{ component_block_id }}" {% endif %} class="{{ component_block_class }} bg-{{ get_color(cta_1_background_color, 'white') }} block-cta-texts-btn-1
      {% if cta_1_background_type == 'inclined' %}
             [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
         {% endif %}
@@ -26,7 +30,7 @@
                 data-aos="fade-in"
                 class="relative space-y-8">
                     {% if cta_1_title != '' %}
-                    <h2 class="leading-normal h2
+                    <h2 class="leading-normal h3
                         text-{{ get_color(cta_1_title_color, 'slate-800') }}
                     ">
                         {{ cta_1_title }}

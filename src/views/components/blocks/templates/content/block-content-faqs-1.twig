@@ -1,4 +1,9 @@
 
+
+{% set component_block_id = fields.component_block_id %}
+{% set component_block_class = fields.component_block_class %}
+
+
 {% set faqs_1_background_color = fields.faqs_1_background_color %}
 {% set faqs_1_title = fields.faqs_1_title %}
 {% set faqs_1_title_color = fields.faqs_1_title_color %}
@@ -7,13 +12,13 @@
 {% set faqs_1_items = fields.faqs_1_items %}
 
 
-<section class="bg-{{ faqs_1_background_color }} block-content-faqs-1">
+<section {% if component_block_id != '' %} id="{{ component_block_id }}" {% endif %} class="{{ component_block_class }} bg-{{ faqs_1_background_color }} block-content-faqs-1">
 	<div class="max-w-6xl px-4 mx-auto sm:px-6">
 		<div class="py-8 md:py-20 border-slate-50">
 
 			{% if faqs_1_title != '' %}
 				<div data-aos="fade-in" class="max-w-3xl pb-8 mx-auto text-center md:pb-10">
-					<h2 class="h2 text-{{ get_color(faqs_1_title_color, 'slate-800') }} ">
+					<h2 class="h3 text-{{ get_color(faqs_1_title_color, 'slate-800') }} ">
 						{{ faqs_1_title }}
 					</h2>
 				</div>

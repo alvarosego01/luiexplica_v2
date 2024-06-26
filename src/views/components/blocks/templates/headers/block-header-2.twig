@@ -1,3 +1,7 @@
+
+{% set component_block_id = fields.component_block_id %}
+{% set component_block_class = fields.component_block_class %}
+
 {% set header_2_background_color = fields.header_2_background_color %}
 {% set header_2_background_type = fields.header_2_background_type %}
 {% set header_2_title = fields.header_2_title %}
@@ -10,7 +14,7 @@
 {% set header_2_enable_form = fields.header_2_enable_form %}
 
 
-<section class="relative">
+<section {% if component_block_id != '' %} id="{{ component_block_id }}" {% endif %} class="{{ component_block_class }} relative">
 
 	<div class="absolute inset-0 bg-{{ header_2_background_color }} pointer-events-none -z-10 mb-36 lg:mb-0 lg:h-[48rem]
 				                    {% if header_2_background_type == 'inclined' %}
