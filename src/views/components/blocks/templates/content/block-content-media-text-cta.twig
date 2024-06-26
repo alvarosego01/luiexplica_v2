@@ -1,5 +1,8 @@
 
 
+{% set component_block_id = fields.component_block_id %}
+{% set component_block_class = fields.component_block_class %}
+
 
 {% set media_text_cta_1_background_color = fields.media_text_cta_1_background_color %}
 {% set media_text_cta_1_title = fields.media_text_cta_1_title %}
@@ -11,7 +14,7 @@
 {% set media_text_cta_1_group_description_color = fields.media_text_cta_1_group_description_color %}
 
 
-<section class="block-content-media-text-cta w-full bg-{{ get_color(media_text_cta_1_background_color, 'white') }}">
+<section {% if component_block_id != '' %} id="{{ component_block_id }}" {% endif %} class="{{ component_block_class }} block-content-media-text-cta w-full bg-{{ get_color(media_text_cta_1_background_color, 'white') }}">
 
 	<div class="relative max-w-6xl px-4 mx-auto sm:px-6">
 
@@ -20,7 +23,7 @@
             <div class="space-y-10" data-aos="fade-in"
             >
               {% if media_text_cta_1_title != '' %}
-                    <h2 class="leading-normal text-center h2 text-{{ get_color(media_text_cta_1_title_color, 'slate-800') }} ">
+                    <h2 class="leading-normal text-center h3 text-{{ get_color(media_text_cta_1_title_color, 'slate-800') }} ">
                         {{ media_text_cta_1_title }}
                     </h2>
                     {% endif %}

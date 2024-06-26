@@ -389,7 +389,24 @@ class CarbonFields
 
     private function register_block($block)
     {
-        $fields = [];
+        $fields = array();
+
+        // $b = array_merge([
+        //        [
+        //         "key" => "component_block_id",
+        //         "label" => "Component block id",
+        //         "type" => "text",
+        //         "placeholder" => "anything",
+        //     ],
+        //     [
+        //         "key" => "component_block_class",
+        //         "label" => "Component block class",
+        //         "type" => "text",
+        //         "placeholder" => ".anything",
+        //     ]
+        // ], $block['fields']);
+
+
         foreach ($block['fields'] as $field) {
             $fields[] = $this->handler_fields($field);
         }
