@@ -1,5 +1,9 @@
 
 
+{% set component_block_id = fields.component_block_id %}
+{% set component_block_class = fields.component_block_class %}
+
+
 {% set count_down_1_background_color = fields.count_down_1_background_color %}
 {% set count_down_1_background_type = fields.count_down_1_background_type %}
 {% set count_down_1_title = fields.count_down_1_title %}
@@ -13,7 +17,7 @@
 {% set count_down_1_button_color = fields.count_down_1_button_color %}
 
 
-<section class="relative block-count-down-1">
+<section {% if component_block_id != '' %} id="{{ component_block_id }}" {% endif %} class="{{ component_block_class }} relative block-count-down-1">
 
 	<div class="absolute inset-0 bg-{{ get_color(count_down_1_background_color, 'slate-900') }}
 				                 pointer-events-none -z-10
@@ -22,13 +26,11 @@
 				                    {% endif %}
 				                    " aria-hidden="true"></div>
 
-
-
         <div class="py-12 md:py-20">
 
 			{% if count_down_1_title != '' %}
 				<div data-aos="fade-up" class="max-w-3xl pb-12 mx-auto text-center md:pb-15">
-					<h2 class="h2
+					<h2 class="h3
                         text-{{ get_color(count_down_1_title_color, 'slate-100') }}
                     ">
 						{{ count_down_1_title }}

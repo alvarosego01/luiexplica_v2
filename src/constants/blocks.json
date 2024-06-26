@@ -1,3 +1,5 @@
+
+
 [
     {
         "name": "block-header-1",
@@ -8,6 +10,18 @@
         "folder": "headers",
         "keywords": "header, title",
         "fields": [
+            {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
              {
                 "key": "header_1_enable_form",
                 "label": "Enable form",
@@ -203,6 +217,18 @@
         "folder": "ctas",
         "keywords": "cta, texts, buttons, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "cta_1_background_color",
                 "label": "Background color",
@@ -346,6 +372,18 @@
         "folder": "content",
         "keywords": "content, features, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "content_features_1_background_color",
                 "label": "Background color",
@@ -448,6 +486,18 @@
         "folder": "content",
         "keywords": "content, features, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "faqs_1_background_color",
                 "label": "Background color",
@@ -514,6 +564,18 @@
         "folder": "content",
         "keywords": "content, features, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "pricing_1_background_color",
                 "label": "Background color",
@@ -668,6 +730,18 @@
         "folder": "content",
         "keywords": "content, features, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
              {
                 "key": "media_text_cta_1_background_color",
                 "label": "Background color",
@@ -824,6 +898,18 @@
         "folder": "content",
         "keywords": "content, features, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "article_cards_1_background_color",
                 "label": "Background color",
@@ -925,6 +1011,18 @@
         "folder": "ctas",
         "keywords": "content, countdown, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "count_down_1_background_color",
                 "label": "Background color",
@@ -1023,6 +1121,18 @@
         "folder": "headers",
         "keywords": "content, header, 2",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "header_2_enable_form",
                 "label": "Enable form",
@@ -1120,6 +1230,18 @@
         "folder": "content",
         "keywords": "content, testimonials, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "testimonials_1_background_color",
                 "label": "Background color",
@@ -1224,6 +1346,18 @@
         "folder": "content",
         "keywords": "content, parag, 1",
         "fields": [
+                 {
+                "key": "component_block_id",
+                "label": "Component block id",
+                "type": "text",
+                "placeholder": "anything"
+            },
+            {
+                "key": "component_block_class",
+                "label": "Component block class",
+                "type": "text",
+                "placeholder": ".anything"
+            },
             {
                 "key": "parag_1_enable_media",
                 "label": "Enable media",
