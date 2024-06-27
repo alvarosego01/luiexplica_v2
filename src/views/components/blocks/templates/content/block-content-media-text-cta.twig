@@ -1,5 +1,3 @@
-
-
 {% set component_block_id = fields.component_block_id %}
 {% set component_block_class = fields.component_block_class %}
 
@@ -16,110 +14,100 @@
 
 <section {% if component_block_id != '' %} id="{{ component_block_id }}" {% endif %} class="{{ component_block_class }} block-content-media-text-cta w-full bg-{{ get_color(media_text_cta_1_background_color, 'white') }}">
 
-	<div class="relative max-w-6xl px-4 mx-auto sm:px-6">
+	<div class="relative max-w-4xl px-4 mx-auto md:max-w-6xl sm:px-6">
 
 		<div class="py-12 md:py-20">
 
-            <div class="space-y-10" data-aos="fade-in"
-            >
-              {% if media_text_cta_1_title != '' %}
-                    <h2 class="leading-normal text-center h3 text-{{ get_color(media_text_cta_1_title_color, 'slate-800') }} ">
-                        {{ media_text_cta_1_title }}
-                    </h2>
-                    {% endif %}
-                    {% if media_text_cta_1_subtitle != '' %}
-                    <div class="text-xl leading-normal text-center text-{{ get_color(media_text_cta_1_subtitle_color, 'slate-500') }} ">
-                        {{ media_text_cta_1_subtitle }}
-                    </div>
-                    {% endif %}
+			<div class="space-y-10" data-aos="fade-in">
+				{% if media_text_cta_1_title != '' %}
+					<h2 class="leading-normal text-center h3 text-{{ get_color(media_text_cta_1_title_color, 'slate-800') }} ">
+						{{ media_text_cta_1_title }}
+					</h2>
+				{% endif %}
+				{% if media_text_cta_1_subtitle != '' %}
+					<div class="text-xl leading-normal text-center text-{{ get_color(media_text_cta_1_subtitle_color, 'slate-500') }} ">
+						{{ media_text_cta_1_subtitle }}
+					</div>
+				{% endif %}
 
-            </div>
+			</div>
 			<div class="max-w-xl mx-auto mt-20 space-y-16 md:max-w-none">
 
-                {% if media_text_cta_1_sections|length > 0 %}
+				{% if media_text_cta_1_sections|length > 0 %}
 
-                {% for item in media_text_cta_1_sections %}
+					{% for item in media_text_cta_1_sections %}
 
-                    {% set media_text_cta_1_title = item.media_text_cta_1_title %}
-                    {% set media_text_cta_1_description = item.media_text_cta_1_description %}
-                    {% set media_text_cta_1_enable_button = item.media_text_cta_1_enable_button %}
-                    {% set media_text_cta_1_button_label = item.media_text_cta_1_button_label %}
-                    {% set media_text_cta_1_button_url = item.media_text_cta_1_button_url %}
-                    {% set media_text_cta_1_button_color = item.media_text_cta_1_button_color %}
-                    {% set media_text_cta_1_type_media = item.media_text_cta_1_type_media %}
-                    {% set media_text_cta_1_image_portrait = item.media_text_cta_1_image_portrait %}
-                    {% set media_text_cta_1_video = item.media_text_cta_1_video %}
+						{% set media_text_cta_1_title = item.media_text_cta_1_title %}
+						{% set media_text_cta_1_description = item.media_text_cta_1_description %}
+						{% set media_text_cta_1_enable_button = item.media_text_cta_1_enable_button %}
+						{% set media_text_cta_1_button_label = item.media_text_cta_1_button_label %}
+						{% set media_text_cta_1_button_url = item.media_text_cta_1_button_url %}
+						{% set media_text_cta_1_button_color = item.media_text_cta_1_button_color %}
+						{% set media_text_cta_1_type_media = item.media_text_cta_1_type_media %}
+						{% set media_text_cta_1_image_portrait = item.media_text_cta_1_image_portrait %}
+						{% set media_text_cta_1_video = item.media_text_cta_1_video %}
 
-                    {% set index = index + 1 %}
+						{% set index = index + 1 %}
 
-				<div x-data="{ modalExpanded: false }" class="
-                        {% if (index % 2) == 0  %}
-                            flex flex-col-reverse space-y-4 space-y-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0
-                        {% else %}
-                            flex flex-col-reverse space-y-4 space-y-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0
-                        {% endif %}
-                    ">
+						<div x-data="{ modalExpanded: false }" class="
+								                        {% if (index % 2) == 0  %}
+								                            flex flex-col-reverse space-y-4 space-y-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0
+								                        {% else %}
+								                            flex flex-col-reverse space-y-4 space-y-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0
+								                        {% endif %}
+								                    ">
 
-					<div class="md:w-6/12" data-aos="fade-left"
-                    data-aos-delay={{ index * 100 }}
-                    >
-						<h2 class="mb-4 h3 md:text-4xl
-                            text-{{ get_color(media_text_cta_1_group_title_color, 'slate-800')}}
-                         ">
-                            {{ media_text_cta_1_title }}
-						</h2>
-						<div class="pl-4 mb-8 text-xl border-l-2 border-slate-800
-                            text-{{ get_color(media_text_cta_1_group_description_color, 'slate-500')}}
-                        ">
-                            {{ media_text_cta_1_description }}
-                        </div>
+							<div class="md:w-6/12" data-aos="fade-left" data-aos-delay={{ index * 100 }}>
+								<h2 class="mb-4 h3 text-center md:text-left md:text-4xl text-{{ get_color(media_text_cta_1_group_title_color, 'slate-800')}} ">
+									{{ media_text_cta_1_title }}
+								</h2>
+								<div class="pl-2 md:pl-4 mb-8 text-xl text-center md:text-left border-none md:border-l-2 border-slate-800 text-{{ get_color(media_text_cta_1_group_description_color, 'slate-500')}} ">
+									{{ media_text_cta_1_description }}
+								</div>
 
-                        {% if media_text_cta_1_enable_button == 1 %}
-                            <div class="flex justify-start w-full space-y-4 ">
-                                {% include "components/common/Button.twig" with {
+								{% if media_text_cta_1_enable_button == 1 %}
+									<div class="flex justify-center w-full space-y-4 md:justify-start ">
+										{% include "components/common/Button.twig" with {
                                     'text': media_text_cta_1_button_label,
                                     'path': media_text_cta_1_button_url,
                                     'type': media_text_cta_1_button_color
                                 }
                             %}
-                        </div>
-                        {% endif %}
+									</div>
+								{% endif %}
 
-					</div>
+							</div>
 
-					<div class="flex items-center justify-center md:w-6/12" data-aos="fade-right"
-                    data-aos-delay={{ index * 150 }}
-                    >
-						<div class="relative">
-							<div class="absolute inset-0 -translate-x-4 -translate-y-4 border-2 pointer-events-none border-{{ get_color(media_text_cta_1_group_title_color, 'slate-200')}} z-1" aria-hidden="true"></div>
-							<img class="relative z-10 object-cover object-center w-auto mx-auto md:h-s_300 pcTab:h-s_250 lg:h-s_450 onLazyLoad"  data-src="{{ _get_img(media_text_cta_1_image_portrait, 'src') }}"  alt="{{ _get_img(media_text_cta_1_image_portrait, 'alt') }}" />
-						</div>
-                           {% if media_text_cta_1_type_media == 'video' %}
+							<div class="flex items-center justify-center md:w-6/12" data-aos="fade-right" data-aos-delay={{ index * 150 }}>
+								<div class="relative">
+									<div class="absolute inset-0 -translate-x-4 -translate-y-4 border-2 pointer-events-none border-{{ get_color(media_text_cta_1_group_title_color, 'slate-200')}} z-1" aria-hidden="true"></div>
+									<img class="relative z-10 object-cover object-center w-auto h-64 mx-auto md:h-s_300 pcTab:h-s_250 lg:h-s_450 onLazyLoad" data-src="{{ _get_img(media_text_cta_1_image_portrait, 'src') }}" alt="{{ _get_img(media_text_cta_1_image_portrait, 'alt') }}"/>
+								</div>
+								{% if media_text_cta_1_type_media == 'video' %}
 
-						<button @click.prevent="modalExpanded = true" class="absolute group">
-							<svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewbox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
-								<circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44"/>
-								<path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"/>
-							</svg>
-						</button>
+									<button @click.prevent="modalExpanded = true" class="absolute group">
+										<svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewbox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+											<circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44"/>
+											<path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"/>
+										</svg>
+									</button>
 
-                        {% endif %}
-					</div>
+								{% endif %}
+							</div>
 
-                         {% if media_text_cta_1_type_media == 'video' %}
+							{% if media_text_cta_1_type_media == 'video' %}
 
-                        {% include "components/common/modals/modal_video.twig" with {
+								{% include "components/common/modals/modal_video.twig" with {
                             'modalExpanded': modalExpanded,
                             'video': media_text_cta_1_video
                             }
                         %}
 
-                    {% endif %}
-                                </div>
+							{% endif %}
+						</div>
 
-                       {% endfor %}
-                        {% endif %}
-
+					{% endfor %}
+				{% endif %}
 
 
 			</div>
