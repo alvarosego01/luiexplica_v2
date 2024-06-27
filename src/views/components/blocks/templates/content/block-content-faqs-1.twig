@@ -30,7 +30,7 @@
 
 						{% set index = index + 1 %}
 						<li x-data="{ expanded: true }" data-aos="fade-up" data-aos-delay={{ index * 50 }}>
-							<button class="flex items-center justify-between w-full py-5 text-left h4 " @click="expanded = !expanded" :aria-expanded="expanded">
+							<button class="flex items-center justify-between w-full py-5 leading-normal text-left h4 " @click="expanded = !expanded" :aria-expanded="expanded">
 								<span class="text-{{ get_color(faqs_1_layout_title_color, 'slate-800') }} ">
 									{{ item.faq_1_title }}
 								</span>
