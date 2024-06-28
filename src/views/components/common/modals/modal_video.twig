@@ -27,7 +27,7 @@
                                         <video
                                         x-init="{{ "$watch('modalExpanded', value => value ? $el.play() : $el.pause())" | e('html_attr') }}"
                                         class="w-full aspect-video" width="1920" height="1080" loop controls>
-                                            <source src="{{ video }}" type="video/mp4" />
+                                            <source src="{{ _get_img(video, 'src') }}" type="video/mp4" />
                                             Your browser does not support the video tag.
                                         </video>
 
