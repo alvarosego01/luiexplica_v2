@@ -121,6 +121,16 @@
                 }
             },
             {
+                "key": "header_1_video_embed",
+                "label": "Video embed",
+                "type": "rich_text",
+                "default": "",
+                "condition": {
+                    "key": "header_1_type_media",
+                    "value": "video"
+                }
+            },
+            {
                 "key": "header_1_enable_buttons",
                 "label": "Enable buttons",
                 "type": "checkbox",
@@ -870,7 +880,17 @@
                                     "key": "media_text_cta_1_type_media",
                                     "value": "video"
                                 }
-                            }
+                            },
+                                    {
+                "key": "media_text_cta_1_video_embed",
+                "label": "Video embed",
+                "type": "rich_text",
+                "default": "",
+                "condition": {
+                    "key": "media_text_cta_1_type_media",
+                    "value": "video"
+                }
+            }
                         ]
                     }
                 ]
@@ -1213,6 +1233,16 @@
                 "key": "header_2_video",
                 "label": "Video",
                 "type": "file",
+                "default": "",
+                "condition": {
+                    "key": "header_2_type_media",
+                    "value": "video"
+                }
+            },
+                    {
+                "key": "header_2_video_embed",
+                "label": "Video embed",
+                "type": "rich_text",
                 "default": "",
                 "condition": {
                     "key": "header_2_type_media",
