@@ -84,16 +84,16 @@
 								<div class="relative">
 									<div class="absolute inset-0 mt-3 ml-3 translate-x-4 translate-y-4 border-2 pointer-events-none  -z-10 border-{{ get_color(header_1_title_color, 'slate-700') }} " aria-hidden="true"></div>
 									<img class=" onLazyLoad
-										                                    {% if header_1_enable_form != 1 %}
-										                                         mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none
-										                                        {% else %} mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_275 pcTab:h-auto lg:max-w-none
-										                                    {% endif %}" data-src="{{ _get_img(header_1_image_portrait, 'src') }}" width="540" height="405" alt="{{ _get_img(header_1_image_portrait, 'alt') }}" alt="Hero"/>
+                                    {% if header_1_enable_form != 1 %}
+                                            mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none
+                                        {% else %} mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_275 pcTab:h-auto lg:max-w-none
+                                    {% endif %}" data-src="{{ _get_img(header_1_image_portrait, 'src') }}" width="540" height="405" alt="{{ _get_img(header_1_image_portrait, 'alt') }}" alt="Hero"/>
 								</div>
 
 								{% if header_1_type_media == 'video' %}
 									<button class="absolute group" @click.prevent="modalExpanded = true" aria-controls="modal">
 										<svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewbox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
-											<circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44"></circle>
+											<circle class="text-white transition duration-150 ease-in-out shadow-xl opacity-90 group-hover:opacity-100" cx="44" cy="44" r="44"></circle>
 											<path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"></path>
 										</svg>
 									</button>
