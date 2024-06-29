@@ -1,7 +1,3 @@
-{# <pre>
-    {{ dump(form_by_page) }}
-</pre> #}
-
 
 {% set component_block_id = fields.component_block_id %}
 {% set component_block_class = fields.component_block_class %}
@@ -9,143 +5,127 @@
 
 {% set header_1_enable_form = fields.header_1_enable_form %}
 
- {% set header_1_background_color = fields.header_1_background_color %}
- {% set header_1_background_type = fields.header_1_background_type %}
+{% set header_1_background_color = fields.header_1_background_color %}
+{% set header_1_background_type = fields.header_1_background_type %}
 
- {% set header_1_title = fields.header_1_title %}
- {% set header_1_title_color = fields.header_1_title_color %}
- {% set header_1_subtitle = fields.header_1_subtitle %}
- {% set header_1_subtitle_color = fields.header_1_subtitle_color %}
- {% set header_1_enable_media = fields.header_1_enable_media %}
- {% set header_1_type_media = fields.header_1_type_media %}
- {% set header_1_image_portrait = fields.header_1_image_portrait %}
- {% set header_1_video = fields.header_1_video %}
- {% set header_1_enable_buttons = fields.header_1_enable_buttons %}
+{% set header_1_title = fields.header_1_title %}
+{% set header_1_title_color = fields.header_1_title_color %}
+{% set header_1_subtitle = fields.header_1_subtitle %}
+{% set header_1_subtitle_color = fields.header_1_subtitle_color %}
+{% set header_1_enable_media = fields.header_1_enable_media %}
+{% set header_1_type_media = fields.header_1_type_media %}
+{% set header_1_image_portrait = fields.header_1_image_portrait %}
+{% set header_1_video = fields.header_1_video %}
+{% set header_1_video_embed = fields.header_1_video_embed %}
+{% set header_1_enable_buttons = fields.header_1_enable_buttons %}
 
- {% set header_button_1_label = fields.header_button_1_label %}
- {% set header_button_1_url = fields.header_button_1_url %}
- {% set header_button_1_color = fields.header_button_1_color %}
- {% set header_button_2_label = fields.header_button_2_label %}
- {% set header_button_2_url = fields.header_button_2_url %}
- {% set header_button_2_color = fields.header_button_2_color %}
+{% set header_button_1_label = fields.header_button_1_label %}
+{% set header_button_1_url = fields.header_button_1_url %}
+{% set header_button_1_color = fields.header_button_1_color %}
+{% set header_button_2_label = fields.header_button_2_label %}
+{% set header_button_2_url = fields.header_button_2_url %}
+{% set header_button_2_color = fields.header_button_2_color %}
 
 
 <section {% if component_block_id != '' %} id="{{ component_block_id }}" {% endif %} class="{{ component_block_class }} relative component_block block-header-1">
 
-    <div class="absolute inset-0 bg-{{ get_color(header_1_background_color, 'slate-900') }}  pointer-events-none -z-10
-        {% if header_1_background_type == 'inclined' %}
-            [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
-        {% endif %} " aria-hidden="true"></div>
+	<div class="absolute inset-0 bg-{{ get_color(header_1_background_color, 'slate-900') }}  pointer-events-none -z-10
+		        {% if header_1_background_type == 'inclined' %}
+		            [clip-path:polygon(0_0,_5760px_0,_5760px_calc(100%_-_352px),_0_100%)]
+		        {% endif %} " aria-hidden="true"></div>
 
-    <div class="relative max-w-6xl px-4 mx-auto sm:px-6">
-        <div class="pt-32 pb-20 md:py-40 {% if header_1_background_type == 'flat' %} md:!py-32 {% endif %} ">
-            <div
-                class="max-w-xl mx-auto space-y-12 md:justify-center md:max-w-none md:grid md:grid-cols-12 md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0">
+	<div class="relative max-w-6xl px-4 mx-auto sm:px-6">
+		<div class="pt-32 pb-20 md:py-40 {% if header_1_background_type == 'flat' %} md:!py-32 {% endif %} ">
+			<div class="max-w-xl mx-auto space-y-12 md:justify-center md:max-w-none md:grid md:grid-cols-12 md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 md:space-y-0">
 
-                <div class="text-center relative md:text-left md:col-span-7 pcTab:min-w-[30rem] space-y-4 lg:space-y-6 aos-init aos-animate" >
-                    {% if header_1_title %}
-                    <h1 class="leading-normal h2 text-{{ get_color(header_1_title_color, 'generalWhite') }}"
-                        data-aos="fade-right"
-                        data-aos-delay="100" >
-                        {{ header_1_title }}
-                    </h1>
-                    {% endif %}
-                    {% if header_1_subtitle %}
-                    <div class="text-xl leading-semi text-{{ get_color(header_1_subtitle_color, 'gray-300') }} "
-                        data-aos="fade-right"
-                        data-aos-delay="200" >
-                        {{ header_1_subtitle }}
-                    </div>
-                    {% endif %}
-                    {% if header_1_enable_buttons %}
-                    <div class="max-w-xs mx-auto space-y-4 sm:max-w-none sm:flex sm:justify-center md:justify-start sm:space-y-0 sm:space-x-4" data-aos="fade-right" data-aos-delay="300"
-                        >
-                         {% if header_button_1_label != '' %}
-                        <div>
-                            {% include "components/common/Button.twig" with {
+				<div class="text-center relative md:text-left md:col-span-7 pcTab:min-w-[30rem] space-y-4 lg:space-y-6 aos-init aos-animate">
+					{% if header_1_title %}
+						<h1 class="leading-normal h2 text-{{ get_color(header_1_title_color, 'generalWhite') }}" data-aos="fade-right" data-aos-delay="100">
+							{{ header_1_title }}
+						</h1>
+					{% endif %}
+					{% if header_1_subtitle %}
+						<div class="text-xl leading-semi text-{{ get_color(header_1_subtitle_color, 'gray-300') }} " data-aos="fade-right" data-aos-delay="200">
+							{{ header_1_subtitle }}
+						</div>
+					{% endif %}
+					{% if header_1_enable_buttons %}
+						<div class="max-w-xs mx-auto space-y-4 sm:max-w-none sm:flex sm:justify-center md:justify-start sm:space-y-0 sm:space-x-4" data-aos="fade-right" data-aos-delay="300">
+							{% if header_button_1_label != '' %}
+								<div>
+									{% include "components/common/Button.twig" with {
                                 'text': header_button_1_label,
                                 'type': header_button_1_color,
                                 'path': header_button_1_url
                                 }
                             %}
-                        </div>
-                        {% endif %}
-                        {% if header_button_2_label != '' %}
-                        <div>
-                             {% include "components/common/Button.twig" with {
+								</div>
+							{% endif %}
+							{% if header_button_2_label != '' %}
+								<div>
+									{% include "components/common/Button.twig" with {
                                 'text': header_button_2_label,
                                 'type': header_button_2_color,
                                 'path': header_button_2_url,
                                  'class': 'w-full'
                                 }
                             %}
-                        </div>
-                        {% endif %}
-                    </div>
-                    {% endif %}
-                </div>
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
 
-                {% if header_1_enable_media %}
-                <div x-data="{ modalExpanded: false }" class="aos-init aos-animate md:col-span-5">
+				{% if header_1_enable_media %}
+					<div x-data="{ modalExpanded: false }" class="aos-init aos-animate md:col-span-5">
 
-                     {% if header_1_enable_form != 1 %}
-                    <div class="flex items-center justify-center p-5" data-aos-delay="300" data-aos="fade-left"
-                    >
-                        <div class="relative">
-                            <div class="absolute inset-0 mt-3 ml-3 translate-x-4 translate-y-4 border-2 pointer-events-none  -z-10 border-{{ get_color(header_1_title_color, 'slate-700') }} " aria-hidden="true"></div>
-                            <img class=" onLazyLoad
-                                    {% if header_1_enable_form != 1 %}
-                                         mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none
-                                        {% else %} mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_275 pcTab:h-auto lg:max-w-none
-                                    {% endif %}"
-                                data-src="{{ _get_img(header_1_image_portrait, 'src') }}"
-                                width="540"
-                                height="405"
-                                alt="{{ _get_img(header_1_image_portrait, 'alt') }}"
-                                alt="Hero" />
-                        </div>
+						{% if header_1_enable_form != 1 %}
+							<div class="flex items-center justify-center p-5" data-aos-delay="300" data-aos="fade-left">
+								<div class="relative">
+									<div class="absolute inset-0 mt-3 ml-3 translate-x-4 translate-y-4 border-2 pointer-events-none  -z-10 border-{{ get_color(header_1_title_color, 'slate-700') }} " aria-hidden="true"></div>
+									<img class=" onLazyLoad
+										                                    {% if header_1_enable_form != 1 %}
+										                                         mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_450 pcTab:h-auto lg:max-w-none
+										                                        {% else %} mx-auto object-cover md:h-s_300 md:!w-s_350 lg:!w-s_275 pcTab:h-auto lg:max-w-none
+										                                    {% endif %}" data-src="{{ _get_img(header_1_image_portrait, 'src') }}" width="540" height="405" alt="{{ _get_img(header_1_image_portrait, 'alt') }}" alt="Hero"/>
+								</div>
 
-                        {% if header_1_type_media == 'video' %}
-                        <button
-                            class="absolute group"
-                            @click.prevent="modalExpanded = true"
-                            aria-controls="modal">
-                            <svg
-                                class="w-16 h-16 fill-current sm:w-20 sm:h-20 group"
-                                viewBox="0 0 88 88"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44"></circle>
-                                <path class="text-blue-600"d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"></path>
-                            </svg>
-                        </button>
-                        {% endif %}
-                    </div>
-                        {% endif %}
+								{% if header_1_type_media == 'video' %}
+									<button class="absolute group" @click.prevent="modalExpanded = true" aria-controls="modal">
+										<svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewbox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+											<circle class="text-white transition duration-150 ease-in-out opacity-80 group-hover:opacity-100" cx="44" cy="44" r="44"></circle>
+											<path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z"></path>
+										</svg>
+									</button>
+								{% endif %}
+							</div>
+						{% endif %}
 
-                    {% if header_1_enable_form == 1 %}
-                    <div class="mx-auto md:w-s_350 w-s_325" data-aos="fade-left" data-aos-delay="350" >
-                        {% include "components/common/forms/form.twig" with {
+						{% if header_1_enable_form == 1 %}
+							<div class="mx-auto md:w-s_350 w-s_325" data-aos="fade-left" data-aos-delay="350">
+								{% include "components/common/forms/form.twig" with {
                             'form': form_by_page,
                             }
                         %}
-                    </div>
-                    {% endif %}
+							</div>
+						{% endif %}
 
 
-                    {% if header_1_type_media == 'video' %}
+						{% if header_1_type_media == 'video' %}
 
-                        {% include "components/common/modals/modal_video.twig" with {
+							{% include "components/common/modals/modal_video.twig" with {
                             'modalExpanded': modalExpanded,
-                            'video': header_1_video
+                            'video': header_1_video,
+                            'video_embed': header_1_video_embed
                             }
                         %}
 
-                    {% endif %}
+						{% endif %}
 
-                </div>
+					</div>
 
-                {% endif %}
-            </div>
-        </div>
-    </div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
 </section>
