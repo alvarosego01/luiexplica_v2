@@ -9,22 +9,22 @@ $desdeG: $hastaM
 $hastaG: $desdeG + 500
 
 @mixin responsivo($media)
-    @if $media == telefonoTable
+    @if $media == _sm
         @media only screen and (min-width: $desdeT) and (max-width: $hastaT)
             @content
-    @else if $media == pcMedio
+    @else if $media == _md
         @media only screen and (min-width: $desdeM) and (max-width: $hastaM)
             @content
-    @else if $media == general
+    @else if $media == _lg
         @media only screen and (min-width: $desdeG) and (max-width: $hastaG)
             @content
-    @else if $media == resto
+    @else if $media == _xl
         @media only screen and (min-width: $hastaG + 1)
             @content
     @else if $media == specialTexts
         @media only screen and (min-width: 992px) and (max-width: 1199px)
             @content
-    @else if $media == smallPcTablet
+    @else if $media == _pcTab
         @media only screen and (min-width: 992px) and (max-width: 1199px)
             @content
 

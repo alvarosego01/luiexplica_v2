@@ -1,6 +1,6 @@
 @charset "UTF-8"
 
-@import 'globals'
+@import globals
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap')
 
@@ -63,4 +63,7 @@ img.wp-smiley, img.emoji
 
 
 button.wa__btn_popup
-    bottom: -95px
+    @include responsivo(_lg)
+        bottom: 95px!important
+    @include responsivo(_xl)
+        bottom: 95px!important

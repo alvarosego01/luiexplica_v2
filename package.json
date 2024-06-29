@@ -17,11 +17,10 @@
             "src": "src/images",
             "dist": "assets/images"
         },
-       "js": {
-    "entry": "src/js/*.js",
-    "output": "assets/js"
-},
-
+        "js": {
+            "entry": "src/js/*.js",
+            "output": "assets/js"
+        },
         "css": {
             "src": "src/sass",
             "dist": "assets/css",
@@ -38,11 +37,10 @@
     },
     "scripts": {
         "dev": "npm-run-all -p imagemin css -p browser watch --max-old-space-size=4096",
-        "browser": "cross-conf-env browser-sync \"http://$npm_package_config_browsersync_proxy\" -f \"**/*.php\"  \"$npm_package_config_css_dist\" \"$npm_package_config_twig_src\" \"$npm_package_config_js_output\" \"$npm_package_config_image_dist\" --port $npm_package_config_browsersync_port",
+        "browser": "cross-conf-env browser-sync \"http://$npm_package_config_browsersync_proxy\" -f \"**/*.php\" \"$npm_package_config_css_dist\" \"$npm_package_config_twig_src\" \"$npm_package_config_js_output\" \"$npm_package_config_image_dist\" --port $npm_package_config_browsersync_port",
         "build": "run-p imagemin css vite",
         "css": "run-p sass tailwind",
         "imagemin": "cross-conf-env node imagemin.mjs \"$npm_package_config_image_src/**/*\" $npm_package_config_image_dist",
-        "presass": "cross-conf-env stylelint \"$npm_package_config_css_src/**/*\" --fix",
         "sass": "cross-conf-env sass $npm_package_config_css_src:$npm_package_config_css_dist --style=compressed",
         "postsass": "cross-conf-env postcss $npm_package_config_css_dist/*.css --use=autoprefixer --dir=$npm_package_config_css_dist $npm_package_config_css_map",
         "tailwind": "cross-conf-env tailwindcss -i $npm_package_config_tailwind_src -o $npm_package_config_tailwind_dist --minify",
@@ -75,9 +73,6 @@
         "onchange": "^7.1.0",
         "postcss-cli": "^11.0.0",
         "sass": "^1.76.0",
-    "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-sass-guidelines": "^9.0.1",
         "tailwindcss": "^3.4.3",
         "typescript": "^5.4.5",
         "vite": "^5.2.11"
